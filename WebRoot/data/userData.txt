@@ -1,0 +1,84 @@
+{
+			total : 100,
+			row : [ {
+				id : "001",
+				name : "盖亚",
+				pwd : "321earth123",
+				sex : "女",
+				tel : "110",
+				address : "地球",
+				email : "earth@universe.com"
+			}, {
+				id : "002",
+				name : "辰星",
+				pwd : "mercury888",
+				sex : "女",
+				tel : "112",
+				address : "水星",
+				email : "mercury@universe.com"
+			}, {
+				id : "003",
+				name : "维纳斯",
+				pwd : "11venus11",
+				sex : "女",
+				tel : "113",
+				address : "金星",
+				email : "venus@universe.com"
+			}, {
+				id : "004",
+				name : "玛尔斯",
+				pwd : "marsllll",
+				sex : "男",
+				tel : "114",
+				address : "火星",
+				email : "mars@universe.com"
+			}, {
+				id : "005",
+				name : "朱庇特",
+				pwd : "jupiter000",
+				sex : "女",
+				tel : "115",
+				address : "木星",
+				email : "jupiter@universe.com"
+			}, {
+				id : "006",
+				name : "克洛诺斯",
+				pwd : "saturn321",
+				sex : "男",
+				tel : "116",
+				address : "土星",
+				email : "saturn@universe.com"
+			}, {
+				id : "007",
+				name : "乌拉诺斯",
+				pwd : "123456",
+				sex : "男",
+				tel : "117",
+				address : "天王星",
+				email : "uranus@universe.com"
+			}, {
+				id : "008",
+				name : "尼普顿",
+				pwd : "111neptune",
+				sex : "男",
+				tel : "118",
+				address : "海王星",
+				email : "neptune@universe.com"
+			}, {
+				id : "009",
+				name : "普路托",
+				pwd : "pluto123",
+				sex : "男",
+				tel : "119",
+				address : "冥王星",
+				email : "pluto@universe.com"
+			}, {
+				id : "010",
+				name : "赫利俄斯",
+				pwd : "sun666",
+				sex : "男",
+				tel : "120",
+				address : "太阳",
+				email : "sun@universe.com"
+			} ]
+		}

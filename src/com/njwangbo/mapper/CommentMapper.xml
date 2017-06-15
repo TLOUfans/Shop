@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.njwangbo.mapper.CommentMapper">
+	<resultMap type="Comment" id="Comment" autoMapping="true">
+		<id property="id" column="COMMENTID"/>
+		<result property="content" column="CONTENT"/>
+		<result property="grade" column="GRADE"/>
+		<result property="createTime" column="CREATETIME"/>
+		<association property="user" javaType="User" >
+			<id property="id" column="USERID"/>
+			<result property="name" column="USERNAME"/>
+			<result property="face" column="USERFACE"/>
+		</association>
+		<association property="goods" javaType="Goods" >
+			<id property="id" column="GOODSID"/>
+			<result property="name" column="GOODSNAME"/>
+		</association>
+		<collection property="comImgs" ofType="CommentImg">
+			<id property="id" column="CIID"/>
+			<result property="url" column="URL"/>
+		</collection>
+	</resultMap>
+
+	<select id="queryByPage" parameterType="GridCondition" resultMap="Comment">
+SELECT T3.COMMENTID,T3.CONTENT,T3.GRADE,T3.CREATETIME,T3.USERID,T3.USERNAME,T3.USERFACE,T3.GOODSID,T3.GOODSNAME,CI.ID AS CIID,CI.URL FROM
+(SELECT T2.COMMENTID,T2.CONTENT,T2.GRADE,T2.CREATETIME,T2.USERID,T2.USERNAME,T2.USERFACE,T2.GOODSID,T2.GOODSNAME FROM
+(SELECT T1.COMMENTID,T1.CONTENT,T1.GRADE,T1.CREATETIME,T1.USERID,T1.USERNAME,T1.USERFACE,T1.GOODSID,T1.GOODSNAME,ROWNUM AS RN FROM
+(SELECT C.ID AS COMMENTID,C.CONTENT,C.GRADE,TO_CHAR(C.CREATETIME,'YYYY-MM-DD HH24:MI:SS') AS CREATETIME,U.ID AS USERID,U.NAME AS USERNAME,U.FACE AS USERFACE,G.ID AS GOODSID,G.NAME AS GOODSNAME 
+FROM T_COMMENT C LEFT JOIN T_USER U ON C.USERID = U.ID LEFT JOIN T_GOODS G ON C.GOODSID = G.ID ${condition} ORDER BY CREATETIME DESC) T1)T2
+WHERE T2.RN &gt; (${pageNum}-1)*#{pageSize} AND T2.RN &lt;=${pageNum}*#{pageSize})T3 LEFT JOIN T_COMMENTIMG CI ON T3.COMMENTID=CI.COMMENTID ORDER BY T3.CREATETIME DESC
+	</select>
+	<select id="queryAllCount" parameterType="GridCondition" resultType="int">
+SELECT COUNT(0) FROM T_COMMENT C LEFT JOIN T_USER U ON C.USERID = U.ID LEFT JOIN T_GOODS G ON C.GOODSID = G.ID ${condition}
+	</select>
+	<delete id="delete" parameterType="String">
+		DELETE FROM T_COMMENT WHERE ID=#{id}
+	</delete>
+	<insert id="add" parameterType="Comment">
+		<selectKey keyProperty="id" order="BEFORE" resultType="String">
+			SELECT SYS_GUID() FROM DUAL
+		</selectKey>
+		INSERT INTO T_COMMENT(ID,CONTENT,GRADE,USERID,GOODSID) VALUES(#{id},#{content},#{grade},#{user.id},#{goods.id})
+	</insert>
+</mapper>

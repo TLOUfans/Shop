@@ -1,0 +1,52 @@
+body {
+	overflow:hidden; 
+}
+#payDialogContainer {
+	margin: 0 auto;
+	width: 360px;
+	color: #666;
+	font-size: 14px;
+	text-align: center;
+}
+
+.line {
+    margin: 25px 0px 25px -50px;
+}
+
+.payTitle {
+    display: inline-block;
+    width: 120px;
+    text-align: right;
+}
+
+.moneyNumTxt {
+	display: inline-block;
+	width: 150px;
+    text-align: right;
+    color: #E64245;
+}
+
+#btnArea {
+	margin-bottom: 35px;
+    text-align: center;
+}
+
+.payDialogBtn {
+	width: 77px;
+    background-color: #F4F4F4 !important;
+    border: 1px solid #AAAAAA !important;
+    border-radius: 3px;
+    padding: 4px 0 !important;
+    margin: 0 7px;
+    color: #666 !important;
+    font-size: 14px !important;
+}
+
+.payDialogBtn:active {
+	background-color: #F4F4F4 !important;
+}
+
+#okBtn {
+	background-color: #E64245 !important;
+	color: #fff !important;
+}

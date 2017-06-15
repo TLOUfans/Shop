@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.njwangbo.mapper.OrderMapper">
+	<resultMap type="Order" id="Order">
+		<id property="id" column="ORDERID"/>
+		<result property="orderNum" column="ORDERNUM"/>
+		<result property="beginTime" column="BEGINTIME"/>
+		<result property="endTime" column="ENDTIME"/>
+		<result property="status" column="STATUS"/>
+		<result property="totalMoney" column="TOTALMONEY"/>
+		<result property="payWay" column="PAYWAY"/>
+		<association property="user" javaType="User">
+			<id property="id" column="USERID"/>
+			<result property="name" column="USERNAME"/>
+		</association>
+		<association property="address" javaType="Address">
+			<id property="id" column="AID"/>
+			<result property="receiver" column="RECEIVER"/>
+			<result property="area" column="AREA"/>
+			<result property="areaDes" column="AREADES"/>
+			<result property="tel" column="TEL"/>
+		</association>
+		<collection property="goodsList" ofType="Goods">
+			<id property="id" column="GOODSID"/>
+			<result property="name" column="GOODSNAME"/>
+			<result property="price" column="PRICE"/>
+			<result property="num" column="num"/>
+			<collection property="smImgs" ofType="SmallImg">
+				<id property="id" column="IMGID"/>
+				<result property="url" column="IMGURL"/>
+			</collection>
+		</collection>
+		<collection property="orderGoodsList" ofType="OrderGoods">
+			<id property="id" column="OGID"/>
+			<result property="goodsNum" column="GOODSNUM"/>
+			<association property="seller" javaType="User">
+				<id property="id" column="SELLERID"/>
+				<result property="name" column="SELLERNAME"/>
+			</association>
+			<association property="goods" javaType="Goods">
+				<id property="id" column="GOODSID"/>
+				<result property="name" column="GOODSNAME"/>
+				<result property="price" column="PRICE"/>
+				<result property="num" column="num"/>
+				<collection property="smImgs" ofType="SmallImg">
+					<id property="id" column="IMGID"/>
+					<result property="url" column="IMGURL"/>
+				</collection>
+			</association>
+		</collection>
+	</resultMap>
+	<insert id="add" parameterType="Order">
+		<selectKey keyProperty="id" order="BEFORE" resultType="String">
+			SELECT SYS_GUID() FROM DUAL
+		</selectKey>
+		INSERT INTO T_ORDER (ID,ORDERNUM,TOTALMONEY,PAYWAY,USERID,USERNAME,ADDRESSID) VALUES(#{id},SEQORDERNUM.NEXTVAL,#{totalMoney},#{payWay},#{user.id},#{user.name},#{address.id})
+	</insert>
+	<select id="queryByPage" parameterType="GridCondition" resultMap="Order">
+SELECT T3.ORDERID,T3.ORDERNUM,T3.BEGINTIME,T3.ENDTIME,T3.STATUS,T3.TOTALMONEY,T3.PAYWAY,T3.USERID,T3.ADDRESSID,OG.ID AS OGID,OG.GOODSNUM,G.ID AS GOODSID,
+G.NAME AS GOODSNAME,G.PRICE,G.NUM,S.ID AS IMGID,S.URL AS IMGURL,U.NAME AS USERNAME,U2.ID AS SELLERID,U2.NAME AS SELLERNAME,A.ID AS AID,A.RECEIVER,A.AREA,A.AREADES,A.TEL FROM
+(SELECT T2.ORDERID,T2.ORDERNUM,T2.BEGINTIME,T2.ENDTIME,T2.STATUS,T2.TOTALMONEY,T2.PAYWAY,T2.USERID,T2.USERNAME,T2.ADDRESSID FROM
+(SELECT T1.ORDERID,T1.ORDERNUM,T1.BEGINTIME,T1.ENDTIME,T1.STATUS,T1.TOTALMONEY,T1.PAYWAY,T1.USERID,T1.USERNAME,T1.ADDRESSID,ROWNUM AS RN FROM
+(SELECT ID AS ORDERID,ORDERNUM,TO_CHAR(BEGINTIME,'YYYY-MM-DD HH24:MI:SS') AS BEGINTIME,ENDTIME,STATUS,TOTALMONEY,PAYWAY,USERID,USERNAME,ADDRESSID FROM
+T_ORDER ${condition} ORDER BY BEGINTIME DESC)T1)T2 
+WHERE T2.RN &gt; (${pageNum}-1)*${pageSize} AND T2.RN &lt;= ${pageNum}*${pageSize})T3 LEFT JOIN T_ORDER_GOODS OG ON T3.ORDERID=OG.ORDERID 
+LEFT JOIN T_GOODS G ON OG.GOODSID=G.ID LEFT JOIN T_SMALLIMG S ON G.ID=S.GOODSID LEFT JOIN T_USER U ON T3.USERID=U.ID LEFT JOIN T_ADDRESS A ON T3.ADDRESSID=A.ID
+LEFT JOIN T_USER U2 ON U2.ID=G.USER_ID ORDER BY BEGINTIME DESC
+	</select>
+	<select id="queryCountByPage" parameterType="GridCondition" resultType="int">
+SELECT COUNT(0) FROM T_ORDER ${condition}
+	</select>
+	<select id="queryById" parameterType="String" resultMap="Order">
+		SELECT ID AS ORDERID,ORDERNUM,BEGINTIME,ENDTIME,STATUS,TOTALMONEY,PAYWAY FROM T_ORDER WHERE ID=#{value}
+	</select>
+	<delete id="delete" parameterType="String">
+		DELETE FROM T_ORDER WHERE ID=#{value}
+	</delete>
+	<update id="update" parameterType="Order">
+		UPDATE T_ORDER SET <if test="endTime==null">ENDTIME=NULL,</if><if test="endTime!=null">ENDTIME=SYSDATE,</if>STATUS=#{status} WHERE ID=#{id}
+	</update>
+</mapper>

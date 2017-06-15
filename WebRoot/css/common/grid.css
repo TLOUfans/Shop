@@ -1,0 +1,123 @@
+.grid {
+	border-left: 1px solid #e0e0e0;
+	border-top: 2px solid #148ffd;
+	width: 100%;
+}
+
+.grid>thead>th {
+	background-color: #f6fbff;
+	font-weight: normal;
+	color: #333;
+}
+
+.gridTD {
+	border-right: 1px solid #e0e0e0;
+	border-bottom: 1px solid #e0e0e0;
+	padding: 5px 10px;
+}
+
+/*分页*/
+.pagerTable {
+	width: 100%;
+	border: 1px solid #e0e0e0;
+	border-top-width: 0px;
+	padding: 2px 10px;
+	font-size: 14px;
+}
+
+.pagerTable td {
+	
+}
+
+.pagerBtn {
+	border: 1px solid #999;
+	text-align: center;
+	padding: 3px 0;
+	background-color: #f0f0f0;
+	color: #798351;
+	cursor: pointer;
+}
+
+.pagerBtn:hover {
+	background-color: #888;
+	color: #fff;
+}
+
+.textright {
+	text-align: right;
+}
+
+.textcenter {
+	text-align: center;
+}
+
+.pagerTable .ddl {
+	border: 1px solid #eee;
+	margin-left: -5px;
+	margin-right: 5px;
+}
+
+.pagerTable .ddl_menu {
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+
+.pagerTable .ddlTxt {
+	padding: 3px 30px 3px 10px;
+}
+
+.pagerTable .ddlArrow {
+	top: 10px;
+}
+
+.pagerTable .ddlList {
+	left: -1px;
+	border: 1px solid #eee;
+}
+
+.pagerTable .ddlItem {
+	padding: 3px 30px 3px 10px;
+}
+
+.girl {
+	border: 1px solid #e82e2e;
+	background-color: #ea7f7f;
+	color: #fff;
+	padding: 4px 0px 7px 0px;
+	text-align: center;
+	border-radius: 3px;
+}
+
+.boy {
+	border: 1px solid #0e74a2;
+	background-color: #2b9acc;
+	color: #fff;
+	padding: 4px 0px 7px 0px;
+	text-align: center;
+	border-radius: 3px;
+}
+
+.selectRow {
+	background-color: #e4e4e4;
+}
+
+.gridTd>img {
+	width: 30px;
+	height: 30px;
+}
+
+.imgArea>img {
+	width: 220px;
+	height: 220px;
+}
+
+.userFace {
+	width: 35px;
+	height: 35px;
+}
+
+.goodsImg {
+	width: 35px;
+	height: 35px;
+	border: 1px solid #eee;
+}

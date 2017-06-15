@@ -1,0 +1,11 @@
+[{
+  				imgSrc:"img/c1.jpg"
+  			},{
+  				imgSrc:"img/c2.jpg"
+  			},{
+  				imgSrc:"img/c3.jpg"
+  			},{
+  				imgSrc:"img/c4.jpg"
+  			},{
+  				imgSrc:"img/c5.jpg"
+  			}]

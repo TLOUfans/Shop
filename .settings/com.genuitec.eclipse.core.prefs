@@ -1,0 +1,3 @@
+eclipse.preferences.version=1
+validator.Checked=WebRoot/js/common/jquery-ui.js,WebRoot/js/common/echarts.common.min.js
+validator.Unchecked=

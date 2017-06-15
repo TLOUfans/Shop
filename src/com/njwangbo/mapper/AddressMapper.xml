@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.njwangbo.mapper.AddressMapper">
+	<resultMap type="Address" id="Address">
+		
+	</resultMap>
+	<insert id="add" parameterType="Address">
+		INSERT INTO T_ADDRESS(ID,RECEIVER,AREA,AREADES,TEL,USERID) VALUES(SYS_GUID(),#{receiver},#{area},#{areaDes},#{tel},#{userId})
+	</insert>
+	<delete id="delete" parameterType="String">
+		DELETE FROM T_ADDRESS WHERE ID=#{value}
+	</delete>
+	<update id="update" parameterType="Address">
+		UPDATE T_ADDRESS SET RECEIVER=#{receiver},AREA=#{area},AREADES=#{areaDes},TEL=#{tel},USERID=#{userId} WHERE ID=#{id}
+	</update>
+</mapper>

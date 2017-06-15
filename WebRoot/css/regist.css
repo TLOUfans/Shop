@@ -1,0 +1,109 @@
+body {
+	background: url(../img/573963dcbcd00.jpg) no-repeat;
+}
+
+#registPanel {
+	width: 50%;
+	max-width: 650px;
+	min-width: 400px;
+	margin: 0 auto;
+	position: relative;
+	color: #fff;
+}
+
+#registPanel a {
+	color: #fff;
+}
+
+#registPanel a:hover {
+	text-decoration: underline;
+}
+
+#registTitle {
+	font-weight: 200;
+	font-size: 33px;
+	margin: 50px 0 20px 0;
+}
+
+#registDes {
+	margin-bottom: 15px;
+	line-height: 25px;
+}
+
+label {
+	font-weight: 600;
+}
+
+input[type='text'],input[type='password'] {
+	font-size: 15px;
+	margin: 10px 0 12px 0;
+	width: 100%;
+	border: 2px solid #a9a8a8;
+}
+
+.errTips {
+	color: red;
+	font-size: 15px;
+	position: relative;
+	float: right;
+	margin: -39px 0px 10px 0;
+	opacity: 0;
+	transition: all 250ms;
+	background-color: white;
+}
+
+.showErrTips {
+	opacity: 1;
+	margin: -39px 15px 10px 0;
+}
+
+#btnRegist {
+	margin: 0px 20px 0 0;
+}
+
+#btnBar {
+	float: right;
+	margin-top: 20px;
+}
+
+.line {
+	position: relative;
+}
+
+.sexLine {
+	padding-bottom: 15px;
+}
+
+/*登录失败的按钮样式*/
+.btnErr {
+	border: 2px solid #d60f00 !important;
+	background-color: #f5493d !important;
+}
+
+/*灰色占位符*/
+.placeholder {
+	font-size: 15px;
+	color: darkgrey;
+	position: absolute;
+	top: 38px;
+	left: 12px;
+	display: none; /*所有浏览器隐藏*/
+	display: block\0; /*IE8~IE11显示*/
+}
+
+/*在IE10以上版本中隐藏，最终只在IE7~IE9中显示，因为只有IE7~IE9不支持placeholder*/
+@media screen and (-ms-high-contrast: active) , ( -ms-high-contrast :
+	none) {
+	.placeholder {
+		display: none; /*仅仅对>=IE10有效*/
+	}
+}
+
+@media screen and (max-width:900px) and (min-width:720px) {
+	#registTitle {
+		margin-top: 10px;
+	}
+	#btnBar {
+		margin-bottom: 15px;
+	}
+}

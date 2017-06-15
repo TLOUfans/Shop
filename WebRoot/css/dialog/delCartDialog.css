@@ -1,0 +1,49 @@
+#dialog {
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	border: 3px solid rgba(222,222,222,0.2) !important;
+	background-color:#fff;
+	z-index: 101;
+}
+
+#titleBar {
+	background-color: #F3F3F3 !important;
+}
+
+#titleTxt{
+	color: 	#666;
+	padding: 6px 15px;
+}
+
+#dialogIframe {
+	width: 100%;
+}
+
+#btnDialogClose {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 33px;
+    padding: 6px 0;
+    color: #C7C7C7 !important;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+}
+
+#btnDialogClose:hover {
+	background-color: #F2F2F2 !important;
+}
+
+#btnDialogClose:active {
+	background-color: #f1f1f1 !important;
+}
+
+#dialogMask {
+	position: absolute;
+	top: 0;
+	background-color: rgba(0,0,0,0.2);
+	width: 100%;
+	height: 100%;
+}

@@ -1,0 +1,55 @@
+[{
+	"name":"德雷克",
+	"sex":"男","age":"30",
+	"email":"123@NaughtyDog.com",
+	"other":"探险家",
+	"src":"img/01.png"
+},{
+	"name":"苏利文",
+	"sex":"男","age":"30",
+	"email":"123@NaughtyDog.com",
+	"other":"探险家",
+	"src":"img/03.jpg"
+},{
+	"name":"埃莲娜",
+	"sex":"女","age":"30",
+	"email":"123@NaughtyDog.com",
+	"other":"探险家",
+	"src":"img/04.jpg"
+},{
+	"name":"山姆",
+	"sex":"男","age":"30",
+	"email":"123@NaughtyDog.com",
+	"other":"探险家",
+	"src":"img/05.jpg"
+},{
+	"name":"乔尔",
+	"sex":"男","age":"30",
+	"email":"123@NaughtyDog.com",
+	"other":"走私客",
+	"src":"img/06.jpg"
+},{
+	"name":"艾莉",
+	"sex":"女","age":"14",
+	"email":"123@NaughtyDog.com",
+	"other":"小萝莉",
+	"src":"img/07.jpg"
+},{
+	"name":"泰斯",
+	"sex":"女","age":"30",
+	"email":"123@NaughtyDog.com",
+	"other":"走私客",
+	"src":"img/08.jpg"
+},{
+	"name":"劳拉",
+	"sex":"女","age":"22",
+	"email":"123@CrystalDynamics.com",
+	"other":"考古学家",
+	"src":"img/09.jpg"
+},{
+	"name":"杰洛特",
+	"sex":"男","age":"150",
+	"email":"123@CDProjectRed.com",
+	"other":"猎魔人",
+	"src":"img/10.jpg"
+}]

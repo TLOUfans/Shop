@@ -1,0 +1,352 @@
+.grid {
+	width: 1300px;
+	margin: 0 auto;
+	margin-top: 10px;
+	font-size: 13px;
+	color: #666;
+	border-left: 1px solid #F1F1F1;
+	border-right: 1px solid #F1F1F1;
+}
+
+.gridTH {
+	background-color: #F3F3F3;
+	font-weight: normal;
+	height: 45px;
+	border-top: 1px solid #E0E0E0;
+	border-bottom: 1px solid #E0E0E0;
+	margin-bottom: 20px;
+	text-align: left;
+	padding: 0 20px;
+	border-right: 1px solid #F1F1F1;
+	border-left: 1px solid #F1F1F1;
+}
+
+.gridTH input[type='checkbox'] {
+	position: relative;
+	right: 12px;
+	top: 1px;
+}
+
+.gridTD {
+	border-bottom: 1px solid #e0e0e0;
+	padding: 5px 10px;
+	background-color: #FFF;
+	height: 120px;
+	padding: 5px 20px;
+}
+
+.gridTD input[type='checkbox'] {
+	position: relative;
+	bottom: 67px;
+	right: 11px;
+}
+
+.txtGoodsName {
+	cursor: pointer;
+}
+
+.txtGoodsName:hover {
+	color: #c80000;
+}
+
+.goodsNumArea {
+	border: 1px solid #CACBCB;
+	width: 70px;
+	margin: 0 auto;
+	user-select: none;
+	background-color: #fff;
+}
+
+.goodsNumInput {
+	border: none !important;
+	outline: none !important;
+	width: 30px !important;
+	padding: 2px 0 !important;
+	text-align: center !important;
+}
+
+.goodsNumArea span {
+	display: inline-block;
+	cursor: pointer;
+	width: 10px;
+	padding: 2px 3px;
+}
+
+.minusBtn {
+	border-right: 1px solid #CACBCB;
+}
+
+.addBtn {
+	border-left: 1px solid #CACBCB;
+}
+
+.txtDel {
+	cursor: pointer;
+}
+
+.txtDel:hover {
+	color: #E4393C;
+}
+
+.selectedDel {
+	
+}
+
+/*分页*/
+.pagerTable {
+	width: 1300px;
+	position: relative;
+	left: calc(50% -         650px);
+	border-top-width: 0px;
+	padding: 2px 0px 2px 9px;
+	font-size: 14px;
+	margin-top: 15px;
+}
+
+.pagerTable td {
+	
+}
+
+.pagerBtn {
+	border: 1px solid #999;
+	text-align: center;
+	padding: 3px 0;
+	background-color: #f0f0f0;
+	color: #798351;
+	cursor: pointer;
+}
+
+.pagerBtn:hover {
+	background-color: #888;
+	color: #fff;
+}
+
+.textright {
+	text-align: right;
+}
+
+.textcenter {
+	text-align: center;
+}
+
+.pagerTable .ddl {
+	border: 1px solid #eee;
+	margin-left: -5px;
+	margin-right: 5px;
+}
+
+.pagerTable .ddl_menu {
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+
+.pagerTable .ddlTxt {
+	padding: 3px 30px 3px 10px;
+}
+
+.pagerTable .ddlArrow {
+	top: 10px;
+}
+
+.pagerTable .ddlList {
+	left: -1px;
+	border: 1px solid #eee;
+}
+
+.pagerTable .ddlItem {
+	padding: 3px 30px 3px 10px;
+}
+
+/*总计*/
+#cartAccount {
+	margin: 20px auto;
+	color: #666;
+	font-size: 13px;
+	width: 1300px;
+	box-sizing: border-box;
+	overflow: hidden;
+}
+
+#cartAccountArea {
+	margin: 0 auto;
+	border: 1px solid #F0F0F0;
+	overflow: hidden;
+	display: inline-block;
+	width: 1193px;
+	padding: 18px 20px;
+	box-sizing: border-box;
+}
+
+#delSelectedGoods {
+	cursor: pointer;
+	float: left;
+	margin-right: 800px;
+}
+
+#delSelectedGoods:hover {
+	color: #E4393C;
+}
+
+#selectedBoxFirst {
+	float: left;
+}
+
+#selectedBoxLast {
+	float: left;
+	margin-right: 30px;
+}
+
+#selectedGoodsNum {
+	float: left;
+	color: #E4393C;
+	font-weight: bold;
+}
+
+#totalMoneyTxt {
+	float: left;
+}
+
+#totalMoney {
+	float: left;
+	color: #E8393C;
+	font-weight: bold;
+}
+
+#goAccount {
+	display: inline-block;
+	padding: 15px 25px;
+	background-color: #E64346;
+	font-size: 19px;
+	color: #fff;
+	font-weight: bold;
+	float: right;
+	cursor: pointer;
+	user-select: none;
+}
+
+.girl {
+	border: 1px solid #e82e2e;
+	background-color: #ea7f7f;
+	color: #fff;
+	padding: 4px 0px 7px 0px;
+	text-align: center;
+	border-radius: 3px;
+}
+
+.boy {
+	border: 1px solid #0e74a2;
+	background-color: #2b9acc;
+	color: #fff;
+	padding: 4px 0px 7px 0px;
+	text-align: center;
+	border-radius: 3px;
+}
+
+.selectRow {
+	background-color: #e4e4e4;
+}
+
+.fontWeight {
+	font-weight: bold;
+}
+
+.errNum {
+	position: absolute;
+	color: #8e8888;
+	left: 10px;
+	top: 25px;
+}
+
+.goodsImg {
+	width: 80px;
+	height: 80px;
+	border: 1px solid #eee;
+	border-radius: 3px;
+}
+
+@media screen and (max-width:720px) and (min-width:320px) {
+	#grid thead {
+		display: none;
+	}
+	#grid {
+		border-top: 1px solid #e0e0e0;
+		width: 100%;
+	}
+	#cartTitle {
+		box-sizing:border-box;
+	}
+	#cartAccount {
+		width: 100%;
+	}
+	#delSelectedGoods {
+		display: none;
+	}
+	#cartAccountArea {
+		width: calc(100% -   107px);
+	}
+	#cartTitle {
+		width: 100% !important;
+	}
+	.checkItem {
+		position: static !important;
+	}
+	.txtGoodsName {
+		height: 34px;
+		display: inline-block;
+		overflow: hidden;
+	}
+	.gridTD {
+		padding: 5px 10px;
+	}
+	.minusBtn {
+		padding: 2px 4px 2px 4px !important;
+		text-align: center;
+	}
+	.addBtn {
+		padding: 2px 4px 2px 4px !important;
+		text-align: center;
+	}
+}
+
+@media screen and (max-width:900px) and (min-width:720px) {
+	#grid thead {
+		display: none;
+	}
+	#grid {
+		border-top: 1px solid #e0e0e0;
+		width: 100%;
+	}
+	#cartAccount {
+		width: 100%;
+	}
+	#delSelectedGoods {
+		display: none;
+	}
+	#cartAccountArea {
+		width: calc(100% -   107px);
+	}
+	#cartTitle {
+		width: 100% !important;
+		box-sizing: border-box;
+	}
+	.checkItem {
+		position: static !important;
+	}
+	.txtGoodsName {
+		height: 34px;
+		display: inline-block;
+		overflow: hidden;
+		margin-bottom: 10px;
+	}
+	.gridTD {
+		padding: 5px 10px;
+	}
+	.minusBtn {
+		padding: 2px 4px 2px 4px !important;
+		text-align: center;
+	}
+	.addBtn {
+		padding: 2px 4px 2px 4px !important;
+		text-align: center;
+	}
+}

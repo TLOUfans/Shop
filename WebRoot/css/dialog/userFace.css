@@ -1,0 +1,30 @@
+#userFaceUpload {
+	padding: 60px 110px;
+}
+
+#userFaceForm {
+	border: 1px solid #eee;
+}
+
+input[type='button'] {
+	padding: 5px 10px;
+}
+
+#imgCon {
+	width: 80px;
+	height: 80px;
+	border-radius: 50%;
+	overflow: hidden;
+	margin-bottom: 27px;
+}
+
+#imgCon>img {
+	width: 80px;
+	height: 80px;
+}
+
+.unClick {
+	background-color: #aaa !important;
+	color: #fff !important;
+	border-color: #999 !important;
+}

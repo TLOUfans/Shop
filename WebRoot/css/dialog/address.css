@@ -1,0 +1,88 @@
+#addressContainer {
+	margin: 0 auto;
+	width: 470px;
+}
+
+input[type='text'] {
+	border: 1px solid #ccc;
+	min-width: 375px;
+	height: 25px;
+	font-size: 13px;
+}
+
+input[type='text']:hover {
+	border: 1px solid #ccc;
+}
+
+input[type='text']:focus {
+	border: 1px solid #ccc;
+}
+
+.line {
+	position: relative;
+	margin-top: 40px;
+}
+
+.line:last-child {
+	text-align: center;
+}
+
+.lineTxt {
+	display: inline-block;
+	width: 70px;
+	text-align: right;
+	margin-right: 10px;
+}
+
+#areaContainer {
+	display: inline-block;
+	left: -4px;
+}
+
+#city-picker3 {
+	position: absolute;
+}
+
+#areaContainer {
+	position: relative;
+	width: 360px;
+}
+
+#saveInfo {
+	font-size: 13px;
+	min-width: 10px;
+	padding: 5px 20px;
+	border-radius: 3px;
+	background-color: #f4f4f4;
+	color: #565757;
+	border: 1px solid #DDDDDD;
+}
+
+#dialog {
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	border: 3px solid rgba(222, 222, 222, 0.2) !important;
+	background-color: #fff;
+	z-index: 101;
+}
+
+#titleBar {
+	background-color: #F3F3F3 !important;
+}
+
+#titleTxt {
+	color: #666;
+	padding: 6px 15px;
+}
+
+.errMsg {
+	color: #f00;
+	position: absolute;
+	top: 3px;
+	right: 25px;
+}
+
+.lastLine {
+	text-align: center;
+}

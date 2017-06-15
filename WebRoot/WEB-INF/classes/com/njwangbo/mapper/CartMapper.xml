@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.njwangbo.mapper.CartMapper">
+	<resultMap type="Cart" id="Cart">
+		<id property="id" column="CARTID"/>
+		<result property="goodsNum" column="GOODSNUM"/>
+		<result property="checked" column="CHECKED"/>
+		<result property="createTime" column="CREATETIME"/>
+		<association property="user" javaType="User" >
+			<id property="id" column="USERID"/>
+			<result property="name" column="USERNAME"/>
+			<result property="face" column="USERFACE"/>
+			<collection property="addresses" ofType="Address">
+				<id property="id" column="AID"/>
+				<result property="receiver" column="RECEIVER"/>
+				<result property="area" column="AREA"/>
+				<result property="areaDes" column="AREADES"/>
+				<result property="tel" column="TEL"/>
+			</collection>
+		</association>
+		<association property="goods" javaType="Goods">
+			<id property="id" column="GOODSID"/>
+			<result property="name" column="GOODSNAME" />
+			<result property="price" column="PRICE" />
+			<result property="num" column="NUM" />
+			<result property="des" column="DES" />
+			<result property="sales" column="SALES" />
+			<result property="userId" column="GOODSUSERID" />
+			<result property="userName" column="GOODSUSERNAME" />
+			<collection property="smImgs" ofType="SmallImg">
+				<id property="id" column="IMGID"/>
+				<result property="src" column="IMGSRC"/>
+				<result property="url" column="IMGURL"/>
+			</collection>
+		</association>
+	</resultMap>
+	
+	<select id="queryByUserId" resultMap="Cart" parameterType="CartCondition">
+SELECT T1.CARTID,T1.GOODSID,T1.USERID,T1.GOODSNUM,T1.CHECKED,T1.GOODSNAME,T1.PRICE,T1.SALES,T1.DES,T1.NUM,S.URL AS IMGURL,S.SRC AS IMGSRC,T1.USERNAME,T1.USERFACE,T1.CREATETIME,T1.GOODSUSERNAME,T1.GOODSUSERID,T1.AID,T1.RECEIVER,T1.AREA,T1.AREADES,T1.TEL FROM
+(SELECT C.ID AS CARTID,C.GOODSID,C.USERID,C.GOODSNUM,C.CHECKED,G.NAME AS GOODSNAME,TO_CHAR(G.PRICE,'999,999.99') AS PRICE,TO_CHAR(C.CREATETIME,'YYYY-MM-DD HH24:MI:SS') AS CREATETIME,G.SALES,G.DES,G.NUM,U.NAME AS USERNAME,U.FACE AS USERFACE,U2.NAME AS GOODSUSERNAME,U2.ID AS GOODSUSERID,A.ID AS AID,A.RECEIVER,A.AREA,A.AREADES,A.TEL
+FROM T_CART C LEFT JOIN T_GOODS G ON C.GOODSID=G.ID LEFT JOIN T_USER U ON C.USERID=U.ID LEFT JOIN T_USER U2 ON G.USER_ID=U2.ID LEFT JOIN T_ADDRESS A ON U.ID=A.USERID WHERE C.USERID=#{userId} ${condition} ORDER BY A.CREATETIME DESC)T1 LEFT JOIN T_SMALLIMG S ON T1.GOODSID = S.GOODSID ORDER BY T1.CREATETIME DESC
+	</select>
+	
+	<select id="queryCountByUserId" resultType="int" parameterType="CartCondition">
+SELECT COUNT(0) FROM T_CART C LEFT JOIN T_GOODS G ON C.GOODSID=G.ID WHERE C.USERID=#{userId}
+	</select>
+	
+	<select id="queryByPage" resultMap="Cart" parameterType="CartCondition">
+SELECT T3.CARTID,T3.GOODSID,T3.USERID,T3.GOODSNUM,T3.CHECKED,T3.CREATETIME,T3.GOODSNAME,T3.PRICE,T3.SALES,T3.DES,T3.NUM,T3.USERNAME,T3.USERFACE,S.SRC AS IMGSRC,S.URL AS IMGURL,T3.AID,T3.RECEIVER,T3.AREA,T3.AREADES,T3.TEL FROM
+(SELECT T2.CARTID,T2.GOODSID,T2.USERID,T2.GOODSNUM,T2.CHECKED,T2.CREATETIME,T2.GOODSNAME,T2.PRICE,T2.SALES,T2.DES,T2.NUM,T2.USERNAME,T2.USERFACE,T2.AID,T2.RECEIVER,T2.AREA,T2.AREADES,T2.TEL FROM
+(SELECT T1.CARTID,T1.GOODSID,T1.USERID,T1.GOODSNUM,T1.CHECKED,T1.CREATETIME,T1.GOODSNAME,T1.PRICE,T1.SALES,T1.DES,T1.NUM,T1.USERNAME,T1.USERFACE,T1.AID,T1.RECEIVER,T1.AREA,T1.AREADES,T1.TEL,ROWNUM AS RN FROM
+(SELECT C.ID AS CARTID,C.GOODSID,C.USERID,C.GOODSNUM,C.CHECKED,TO_CHAR(C.CREATETIME,'YYYY-MM-DD HH24:MI:SS') AS CREATETIME, G.NAME AS GOODSNAME, TO_CHAR(G.PRICE,'999,999.99') AS PRICE,G.SALES,G.DES,G.NUM,U.NAME AS USERNAME,U.FACE AS USERFACE,A.ID AS AID,A.RECEIVER,A.AREA,A.AREADES,A.TEL
+FROM T_CART C LEFT JOIN T_GOODS G ON C.GOODSID=G.ID LEFT JOIN T_USER U ON C.USERID=U.ID LEFT JOIN T_ADDRESS A ON U.ID=A.USERID ${condition} ORDER BY C.CREATETIME DESC)T1) T2 WHERE T2.RN &gt; (${pageNum}-1)*#{pageSize} AND T2.RN &lt;=${pageNum}*#{pageSize})T3 
+LEFT JOIN T_SMALLIMG S ON T3.GOODSID=S.GOODSID ORDER BY T3.CREATETIME DESC
+	</select>
+	<select id="queryCountByPage" resultType="int" parameterType="CartCondition">
+SELECT COUNT(0) FROM T_CART C LEFT JOIN T_GOODS G ON C.GOODSID=G.ID
+	</select>
+	
+	<select id="queryByGoodsId" resultMap="Cart" parameterType="CartCondition">
+SELECT T1.CARTID,T1.GOODSID,T1.USERID,T1.GOODSNUM,T1.GOODSNAME,T1.PRICE,T1.SALES,T1.DES,T1.NUM,S.URL AS IMGURL,S.SRC AS IMGSRC,T1.USERNAME,T1.USERFACE,T1.AID,T1.RECEIVER,T1.AREA,T1.AREADES,T1.TEL FROM
+(SELECT C.ID AS CARTID,C.GOODSID,C.USERID,C.GOODSNUM,G.NAME AS GOODSNAME,TO_CHAR(G.PRICE,'999,999.99') AS PRICE,G.SALES,G.DES,G.NUM,U.NAME AS USERNAME,U.FACE AS USERFACE,A.ID AS AID,A.RECEIVER,A.AREA,A.AREADES,A.TEL
+FROM T_CART C LEFT JOIN T_GOODS G ON C.GOODSID=G.ID LEFT JOIN T_USER U ON C.USERID=U.ID LEFT JOIN T_ADDRESS A ON U.ID=A.USERID WHERE C.USERID=#{userId} AND C.GOODSID=#{goodsId})T1 LEFT JOIN T_SMALLIMG S ON T1.GOODSID = S.GOODSID
+	</select>
+	<delete id="delete" parameterType="String">
+		DELETE FROM T_CART WHERE ID=#{value}
+	</delete>
+	
+	<insert id="add" parameterType="Cart">
+		INSERT INTO T_CART(ID,GOODSID,USERID,GOODSNUM) VALUES(SYS_GUID(),#{goods.id},#{user.id},#{goodsNum})
+	</insert>
+	<update id="update" parameterType="Cart">
+		UPDATE T_CART SET GOODSNUM = #{goodsNum},CHECKED=#{checked} WHERE ID=#{id}
+	</update>
+</mapper>

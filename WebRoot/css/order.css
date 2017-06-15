@@ -1,0 +1,365 @@
+#orderContainer {
+	width: 1300px;
+	margin: 0 auto;
+	margin-bottom: 30px;
+}
+
+#orderTitle {
+	width: 130px;
+	font-size: 17px;
+	font-weight: bold;
+	color: #666;
+	padding: 10px 0px 10px 10px;
+}
+
+#orderContent {
+	
+}
+
+#orderStatus {
+	font-size: 14px;
+	padding: 10px 0;
+}
+
+.orderStatusTitle {
+	color: #333;
+	padding: 0 15px;
+	cursor: pointer;
+}
+
+.orderStatusTitle:hover {
+	color: #E4393C;
+}
+
+#orderGrid {
+	width: 1300px;
+	color: #666;
+	font-size: 13px;
+}
+
+.orderGridTh {
+	background-color: #F5F5F5;
+	font-weight: normal;
+	padding: 8px 0;
+}
+
+.blankRow {
+	height: 20px;
+}
+
+.titleTd {
+	background-color: #F5F5F5;
+	padding: 8px 0;
+	font-size: 13px;
+	border-top: 1px solid #E5E5E5;
+	border-right: 1px solid #E5E5E5;
+	border-left: 1px solid #E5E5E5;
+}
+
+.orderTd {
+	border-bottom: 1px solid #E5E5E5;
+	border-right: 1px solid #E5E5E5;
+	padding: 15px 15px;
+	vertical-align: top;
+}
+
+.orderTd:first-child {
+	border-left: 1px solid #E5E5E5;
+}
+
+.goodsImg {
+	border: 1px solid #eee;
+	float: left;
+	margin-right: 20px;
+}
+
+.goodsImg img {
+	width: 60px;
+	height: 60px;
+}
+
+.goodsName {
+	float: left;
+	width: 260px;
+	margin-right: 70px;
+	cursor: pointer;
+}
+
+.goodsName a {
+	color: #666;
+}
+
+.goodsName a:hover {
+	color: #E4393C;
+}
+
+.goodsNum {
+	float: left;
+	width: 100px;
+}
+
+.sellerName {
+	float: left;
+	display: inline-block;
+	width: 180px;
+}
+
+.receiver {
+	text-align: center;
+	cursor: pointer;
+	position: relative;
+}
+
+.userAddressInfo {
+	position: absolute;
+    width: 230px;
+    border: 1px solid #DDDDDD;
+    right: 85px;
+    top: -26px;
+    padding: 20px;
+    line-height: 1.9;
+    text-align: left;
+    background-color: #fff;
+    box-shadow: 2px 2px 10px #ddd;
+    font-size: 12px;
+}
+
+.receiverInfo {
+	font-weight: bold;
+}
+
+.totalMoney {
+	text-align: center;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #eee;
+	margin-bottom: 5px;
+	padding-bottom: 10px;
+}
+
+.payWay {
+	text-align: center;
+}
+
+.status {
+	text-align: center;
+}
+
+.confirm {
+	text-align: center;
+}
+
+.confirmBtn {
+	background-color: #f5f5f5 !important;
+	border: 1px solid #ddd !important;
+	color: #333 !important;
+	font-size: 14px !important;
+	border-radius: 2px;
+}
+
+.confirmBtn:hover {
+	border: 1px solid #E4393C !important;;
+	color: #E4393C !important;;
+}
+
+.beginTime {
+	color: #aaa;
+	padding: 0 60px;
+}
+
+.orderNumTxt {
+	color: #aaa;
+}
+
+.orderNum {
+	margin-right: 80px;
+}
+
+.delTxt {
+	float: right;
+	margin-right: 20px;
+	cursor: pointer;
+}
+
+.delTxt:hover {
+	color: #E4393C;
+}
+
+.goodsContainer {
+	overflow: hidden;
+	width: 720px;
+}
+
+.selectTitle {
+	color: #E4393C;
+	font-weight: bold;
+}
+
+.pagerTable {
+	width: 1300px;
+	padding-left: 20px;
+	margin-top: 10px;
+	color: #666;
+	font-size: 14px;
+}
+
+.pagerTable .ddl {
+	border: 1px solid #eee;
+	margin-left: 0px;
+	margin-right: 5px;
+	position: relative;
+}
+
+.pagerTable .ddl_menu {
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+
+.pagerTable .ddlTxt {
+	padding: 3px 30px 3px 10px;
+}
+
+.pagerTable .ddlArrow {
+	top: 10px;
+}
+
+.pagerTable .ddlList {
+	left: -1px;
+	border: 1px solid #eee;
+	position: absolute;
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	background-color: #fff;
+}
+
+.pagerTable .ddlItem {
+	padding: 3px 52px 3px 10px;
+}
+
+.pagerTable .pagerBtn {
+	border: 1px solid #999;
+	text-align: center;
+	padding: 3px 0;
+	background-color: #f0f0f0;
+	color: #798351;
+	cursor: pointer;
+}
+
+.pagerTable .pagerBtn:hover {
+	background-color: #888;
+	color: #fff;
+}
+
+@media screen and (max-width:720px) and (min-width:320px) {
+	 #orderContainer {
+	 	width: 100%;
+	 }
+	.orderStatusTitle {
+		width: 20%;
+	}
+	#orderGrid {
+		width: 100%;
+	}
+	.pagerTable {
+		display: none;
+	}
+	.orderGridTh:nth-child(n+4) {
+		display: none;
+	}
+	.orderTd:nth-child(n+4) {
+		display: none;
+	}
+	.orderGridTh:nth-child(2) {
+		display: none;
+	}
+	.orderTd:nth-child(2) {
+		display: none;
+	}
+	.sellerName {
+		display: none;
+	}
+	.goodsContainer {
+		width: 100%;
+	}
+	.goodsName {
+		margin: 0;
+		width: 100%;
+	}
+	.delTxt {
+		display: none;
+	}
+	.goodsContainer {
+		box-sizing: border-box;
+	}
+	.goodsImg {
+		float: left;
+		margin: 0;
+	}
+	.goodsName {
+		float: left;
+		width: calc(100% - 82px);
+		box-sizing: border-box;
+		padding-left: 10px;
+	}
+	.goodsNum {
+		width: 100%;
+		text-align: right;
+	}
+}
+
+@media screen and (max-width:900px) and (min-width:720px) {
+	#orderContainer {
+	 	width: 100%;
+	 }
+	.orderStatusTitle {
+		width: 20%;
+	}
+	#orderGrid {
+		width: 100%;
+	}
+	.pagerTable {
+		display: none;
+	}
+	.orderGridTh:nth-child(4) {
+		display: none;
+	}
+	.orderTd:nth-child(4) {
+		display: none;
+	}
+	.orderGridTh:nth-child(2) {
+		display: none;
+	}
+	.orderTd:nth-child(2) {
+		display: none;
+	}
+	.sellerName {
+		display: none;
+	}
+	.goodsContainer {
+		width: 100%;
+	}
+	.goodsName {
+		margin: 0;
+		width: 100%;
+	}
+	.delTxt {
+		display: none;
+	}
+	.goodsContainer {
+		box-sizing: border-box;
+	}
+	.goodsImg {
+		float: left;
+		margin: 0;
+	}
+	.goodsName {
+		float: left;
+		width: calc(100% - 82px);
+		box-sizing: border-box;
+		padding-left: 10px;
+	}
+	.goodsNum {
+		width: 100%;
+		text-align: right;
+	}
+}

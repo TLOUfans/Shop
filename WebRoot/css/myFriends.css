@@ -1,0 +1,150 @@
+body {
+	overflow: hidden;
+}
+
+.Container {
+	width: 1000px;
+	margin: 0 auto;
+	color: #333;
+	position: relative;
+	border: 1px solid #e7eaf1;
+	box-sizing: border-box;
+}
+
+.title {
+	padding: 7px 0 7px 20px;
+	background-color: #4fa9f1;
+	border-bottom: 1px solid #eee;
+	cursor: pointer;
+	user-select: none;
+	position: relative;
+}
+
+.title>i.fa-plus{
+	color: white;
+	float: right;
+	padding: 4px 10px 0 0;
+}
+.title>i.fa-minus{
+	position: absolute;
+    top: 11px;
+    right: 10px;
+    color: white;
+
+}
+
+.title_text {
+	font-weight: 300;
+	font-size: 18px;
+	color: white;
+	display: inline-block;
+}
+
+.resultContainer {
+	overflow-y: auto;
+	height: 300px;
+	transition: all 250ms;
+}
+
+.resultItem {
+	float: left;
+	border: 1px solid #999;
+	overflow: hidden;
+	padding-right: 10px;
+	background-color: white !important;
+	margin: 10px 10px 10px 17px;
+	width: 288px;
+	user-select: none;
+	border-radius: 10px;
+	height: 100px;
+	box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+#select_container {
+	width: 100px;
+}
+
+.userFace {
+	width: 70px;
+	height: 70px;
+	border-radius: 70px;
+	overflow: hidden;
+	float: left;
+	margin: 5px 0 0 10px;
+	position: relative;
+	top: 10px;
+	text-shadow: 1px 2px 4px #999;
+}
+
+.userFace>img {
+	width: 70px;
+	height: 70px;
+}
+
+.userInfo {
+	float: left;
+	padding: 5px 0 5px 10px;
+	color: #666;
+	font-size: 17px;
+	position: relative;
+	top: 7px;
+	left: 13px;
+	text-shadow: 1px 2px 4px #999;
+}
+
+.userName {
+	font-weight: 500;
+	padding: 0 0 5px 0;
+}
+
+.money {
+	font-weight: 500;
+	padding: 5px 0 0 0;
+}
+
+.sexDiv {
+	width: 35px;
+	height: 20px;
+	border-radius: 7px;
+	background-color: #71B8FC;
+	text-align: center;
+}
+
+.sex span:last-child {
+	color: white;
+	font-size: 10px;
+}
+
+.deleteFriend {
+	float: right;
+	background-color: #FA5555;
+	color: white;
+	font-size: 13px;
+	padding: 3px 5px 3px 5px;
+	position: relative;
+	top: 17px;
+	cursor: pointer;
+	border-radius: 7px;
+}
+.deleteFriend:HOVER{
+	background-color: #ED4B4B;
+}
+
+.heightEq0 {
+	height: 0px;
+}
+
+.toChat {
+	float: right;
+	background-color: #FA5555;
+	color: white;
+	font-size: 13px;
+	padding: 3px 5px 3px 5px;
+	position: relative;
+	top: 13px;
+	cursor: pointer;
+	border-radius: 7px;
+}
+.toChat:HOVER {
+	background-color: #ED4B4B;
+}

@@ -1,0 +1,97 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+input[type='text'] {
+	outline: none;
+	border: 2px solid #a9a8a8;
+	width: 100%;
+}
+
+#container {
+	width: 100%;
+	margin: 0 auto;
+	color: #333;
+	height: 100%;
+	position: relative;
+	min-width: 871px;
+}
+
+#title_area {
+	padding: 30px 0 0 60px;
+}
+
+.title_text {
+	font-weight: bold;
+	font-size: 18px;
+	color: #333;
+}
+
+#find_area {
+	padding: 30px 65px 0 60px;
+}
+
+.input_text {
+	color: #333;
+	padding-left: 10px;
+}
+
+.input_text:first {
+	padding-left: 0;
+}
+
+.text_control {
+	padding: 6px 6px;
+}
+
+#find_btn_control:hover {
+	background-color: #eee;
+	cursor: pointer;
+	color: #333;
+}
+
+#find_btn_control:active {
+	background-color: #666;
+	cursor: pointer;
+	color: #fff;
+}
+
+#list_bar {
+	text-align: right;
+	padding: 30px 60px 0 60px;
+}
+
+.list_btn {
+	margin: 5px;
+}
+
+.condition_cell {
+	width: 31px;
+}
+
+#list_area_title {
+	font-weight: bold;
+	font-size: 18px;
+	color: #333;
+	float: left;
+	padding-top: 5px;
+}
+
+#gird_container {
+	padding: 20px 65px 0px 65px;
+}
+
+#condition_table {
+	width: 100%;
+}
+
+.condition_cell_input {
+	width: 440px;
+}
+
+.unClick {
+	background-color: #aaa !important;
+	color: #fff !important;
+	border-color: #999 !important;
+}

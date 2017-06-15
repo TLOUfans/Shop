@@ -1,0 +1,53 @@
+body {
+	overflow: hidden;
+}
+.delCart {
+	color: #666;
+	padding: 38px 80px;
+}
+
+.warningImg {
+	background-image: url(../../img/icon48.png);
+	display: inline-block;
+	background-position: -94px 0;
+	width: 50px;
+	height: 44px;
+}
+
+.delContainer {
+	display: inline-block;
+}
+
+.cdaTxt {
+	color: #ff6c00;
+	font-size: 18px;
+	font-weight: bold;
+	padding-bottom: 7px;
+}
+
+.tips {
+	font-size: 12px;
+	color: #666;
+}
+
+.cdaBtnArea {
+	padding: 14px 45px;
+}
+
+#cdaOkBtn {
+	background-color: #F4F4F4;
+	border: 1px solid #aaa;
+	color: #666;
+	padding: 4px 15px;
+	border-radius: 3px;
+	font-size: 13px;
+}
+
+#cdaBackBtn {
+	background-color: #E64245;
+	padding: 4px 15px;
+	border: 1px solid #aaa;
+	color: #fff;
+	border-radius: 3px;
+	font-size: 13px;
+}

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.njwangbo.mapper.UserMapper">
+	<resultMap type="User" id="User">
+		<id property="id" column="USERID" />
+		<result property="loginName" column="LOGINNAME" />
+		<result property="pwd" column="PWD" />
+		<result property="name" column="USERNAME" />
+		<result property="sex" column="SEX" />
+		<result property="money" column="MONEY" />
+		<result property="face" column="FACE" />
+		<result property="tag" column="TAG" />
+		<result property="createTime" column="CREATETIME" />
+		<collection property="addresses" ofType="Address">
+			<id property="id" column="AID" />
+			<result property="receiver" column="RECEIVER" />
+			<result property="area" column="AREA" />
+			<result property="areaDes" column="AREADES" />
+			<result property="tel" column="TEL" />
+		</collection>
+		<collection property="friends" ofType="USER">
+			<id property="id" column="U2ID" />
+			<result property="name" column="U2NAME" />
+			<result property="sex" column="U2SEX" />
+			<result property="money" column="U2MONEY" />
+			<result property="face" column="U2FACE" />
+		</collection>
+	</resultMap>
+	<select id="queryById" parameterType="String" resultMap="User">
+		SELECT U.ID AS USERID,U.LOGINNAME,U.NAME AS
+		USERNAME,U.PWD,U.SEX,U.MONEY,U.FACE,U.TAG,U.CREATETIME,A.ID,A.AREA,A.AREADES,A.TEL,U2.ID AS U2ID,U2.NAME U2NAME,U2.SEX U2SEX,U2.FACE U2FACE,U2.MONEY U2MONEY
+		FROM T_USER U LEFT JOIN T_ADDRESS A ON U.ID=A.USERID 
+		LEFT JOIN T_FRIEND F ON F.USER_ID = U.ID
+		LEFT JOIN T_USER U2 ON F.FRIEND_ID = U2.ID WHERE U.ID=#{value}
+	</select>
+	<select id="queryByLoginName" parameterType="String" resultMap="User">
+		SELECT * FROM T_USER WHERE LOGINNAME=#{loginName}
+	</select>
+	<insert id="add" parameterType="User">
+		<selectKey keyProperty="id" order="BEFORE" resultType="String">
+			SELECT SYS_GUID() FROM DUAL
+		</selectKey>
+		INSERT INTO T_USER(ID, LOGINNAME,PWD,NAME,CREATETIME,SEX) VALUES
+		(#{id},#{loginName},#{pwd},#{name},SYSDATE,#{sex})
+	</insert>
+	<update id="update" parameterType="User">
+		UPDATE T_USER SET LOGINNAME =
+		#{loginName},
+		PWD=#{pwd},NAME=#{name},SEX=#{sex},FACE=#{face},MONEY=#{money} where
+		ID = #{id}
+	</update>
+	<delete id="delete" parameterType="String">
+		DELETE FROM T_USER WHERE
+		ID=#{id}
+	</delete>
+	<select id="queryAll" parameterType="GridCondition" resultMap="User">
+		SELECT
+		T3.USERID,T3.LOGINNAME,T3.PWD,T3.USERNAME,T3.SEX,T3.MONEY,T3.FACE,T3.CREATETIME,A.ID
+		AS AID,A.RECEIVER,A.AREA,A.AREADES,A.TEL FROM
+		(SELECT
+		T2.USERID,T2.LOGINNAME,T2.PWD,T2.USERNAME,T2.SEX,T2.MONEY,T2.FACE,T2.CREATETIME
+		FROM
+		(SELECT T1.ID AS USERID,T1.LOGINNAME,T1.PWD,T1.NAME AS
+		USERNAME,T1.SEX,T1.MONEY,T1.FACE,T1.CREATETIME,ROWNUM AS RN FROM
+		(SELECT ID,LOGINNAME,PWD,NAME,SEX,MONEY,FACE,CREATETIME FROM T_USER
+		${condition} ORDER BY CREATETIME) T1)T2
+		WHERE T2.RN &gt; (${pageNum}-1)*#{pageSize} AND T2.RN &lt;=
+		${pageNum}*#{pageSize}) T3
+		LEFT JOIN T_ADDRESS A ON T3.USERID=A.USERID
+	</select>
+	<select id="getTotal" parameterType="GridCondition" resultType="int">
+		SELECT COUNT(0) FROM (SELECT * FROM T_USER E ${condition})
+	</select>
+	<select id="queryByLoginNameAndPwd" parameterType="User"
+		resultMap="User">
+		SELECT U.ID AS USERID,U.LOGINNAME,U.NAME AS
+		USERNAME,U.PWD,U.SEX,U.MONEY,U.FACE,U.TAG,U.CREATETIME,A.ID,A.AREA,A.AREADES,A.TEL,U2.ID AS U2ID,U2.NAME U2NAME,U2.SEX U2SEX,U2.FACE U2FACE,U2.MONEY U2MONEY
+		FROM T_USER U LEFT JOIN T_ADDRESS A ON U.ID=A.USERID 
+		LEFT JOIN T_FRIEND F ON F.USER_ID = U.ID
+		LEFT JOIN T_USER U2 ON F.FRIEND_ID = U2.ID
+		WHERE U.LOGINNAME=#{loginName} AND U.PWD=#{pwd}
+	</select>
+</mapper>

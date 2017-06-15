@@ -1,0 +1,212 @@
+#commentContainer {
+	margin-top: 20px;
+	width: 1300px;
+	margin: 0 auto;
+	margin-bottom: 30px;
+}
+
+textarea {
+	resize: none;
+	outline: none;
+	width: 720px;
+	height: 140px;
+	line-height: 25px;
+	padding: 5px 10px;
+	border: 1px solid #E0E0E0;
+}
+
+#titleArea {
+	text-align: center;
+	padding-bottom: 23px;
+	border-bottom: 1px solid #E4E4E4;
+}
+
+#title {
+	font-weight: bold;
+	padding: 10px 0 15px 0;
+	font-size: 19px;
+	color: #666;
+}
+
+#orderDes {
+	color: #666;
+	font-size: 14px;
+}
+
+#orderNum {
+	color: #333;
+	margin-right: 30px;
+}
+
+.orderArea {
+	border-bottom: 1px solid #E4E4E4;
+	overflow: hidden;
+	color: #666;
+	font-size: 13px;
+	border-right: 1px solid #E4E4E4;
+}
+
+.goodDesArea {
+	float: left;
+	width: 260px;
+	padding: 50px 50px;
+	border-right: 1px solid #F5F5F5;
+	border-left: 1px solid #E4E4E4;
+	line-height: 27px;
+}
+
+.goodsImg {
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+.goodsImg img {
+	width: 100px;
+	height: 100px;
+}
+
+.goodsName {
+	margin-bottom: 10px;
+	text-align: center;
+}
+
+.goodsPirce {
+	font-weight: bold;
+	text-align: center;
+	color: #E5393C;
+	margin-bottom: 20px;
+}
+
+.commentArea {
+	float: left;
+	padding: 35px 30px 0 50px;
+	font-size: 14px;
+}
+
+.line {
+	overflow: hidden;
+	margin-bottom: 20px;
+}
+
+.commenTxt {
+	float: left;
+	width: 110px;
+}
+
+.grade {
+	float: left;
+	cursor: pointer;
+	position: relative;
+	top: 3px;
+}
+
+.commentContentContainer {
+	float: left;
+}
+
+.uploadBtnArea {
+	margin-left: 110px;
+}
+
+.commentImgArea {
+	float: left;
+	margin-right: 5px;
+}
+
+.commentImgArea:hover {
+	background-color: rgb(0, 0, 0, 0.2);
+	cursor: pointer;
+}
+
+.commentImgArea>img {
+	width: 60px;
+	height: 56px;
+}
+
+.uploadBtn {
+	font-size: 12px !important;
+	padding: 19px 5px !important;
+	border: 1px solid #E0E0E0 !important;
+	background-color: #fff !important;
+	color: #A9A9A9 !important;
+}
+
+#confirmBtnArea {
+	text-align: center;
+	padding: 20px 0 0 0;
+}
+
+#confirmBtn {
+	padding: 8px 55px;
+	border: none;
+	background-color: #E5393C;
+	border-radius: 5px;
+}
+
+.gradeNum {
+	margin-right: 5px;
+}
+
+.redStar {
+	color: #E5393C;
+}
+
+@media screen and (max-width:720px) and (min-width:320px) {
+	#commentContainer {
+		width: 100%;
+	}
+	.goodDesArea {
+		width: 100%;
+		box-sizing: border-box;
+	}
+	.commentArea {
+		width: 100%;
+		box-sizing: border-box;
+		padding: 0 10px;
+	}
+	.uploadBtnArea {
+		margin: 0;
+	}
+	.commentContentContainer {
+		float: none;
+	}
+	textarea {
+		width: 100%;
+	}
+	.commenTxt {
+		margin-bottom: 10px;
+	}
+	.line {
+		margin-bottom: 10px;
+	}
+}
+
+@media screen and (max-width:900px) and (min-width:720px) {
+	#commentContainer {
+		width: 100%;
+	}
+	.goodDesArea {
+		width: 100%;
+		box-sizing: border-box;
+	}
+	.commentArea {
+		width: 100%;
+		box-sizing: border-box;
+		padding: 0 10px;
+	}
+	.uploadBtnArea {
+		margin: 0;
+	}
+	.commentContentContainer {
+		float: none;
+	}
+	textarea {
+		width: 100%;
+	}
+	.commenTxt {
+		margin-bottom: 10px;
+	}
+	.line {
+		margin-bottom: 10px;
+	}
+}

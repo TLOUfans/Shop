@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.njwangbo.mapper.TypeMenuMapper">
+	<resultMap type="TypeMenu" id="TypeMenu">
+		<id property="id" column="ID"/>
+		<result property="menu" column="MENU"/>
+		<result property="url" column="URL"/>
+		<result property="no" column="NO"/>
+		<result property="createTime" column="T_CREATETIME"/>
+		<collection property="typeItemTitles" ofType="TypeItemTitle">
+			<id property="id" column="T_ID"/>
+			<result property="itemTitle" column="ITEMTITLE"/>
+			<result property="url" column="URL_1"/>
+			<collection property="items" ofType="TypeItem">
+				<id property="id" column="I_ID"/>
+				<result property="item" column="ITEM"/>
+				<result property="url" column="URL_2"/>
+			</collection>
+		</collection>
+	</resultMap>
+	<select id="queryAll" resultMap="TypeMenu">
+		SELECT M.*,T.ID AS T_ID,T.ITEMTITLE, I.ID AS I_ID,I.ITEM FROM T_TYPEMENU M LEFT JOIN T_TYPEITEMTITLE T ON M.ID=T.TYPEMENUID LEFT JOIN T_TYPEITEM I ON T.ID = I.TYPEMENUTITLEID
+	</select>
+	
+	<select id="queryByPager" resultMap="TypeMenu" parameterType="GridCondition">
+		SELECT T2.*,TO_CHAR(T2.CREATETIME,'YYYY-MM-DD HH24:MI:SS') AS T_CREATETIME FROM
+		(SELECT T1.*,ROWNUM AS RN FROM
+		(SELECT * FROM T_TYPEMENU ${condition} ORDER BY CREATETIME DESC)T1)T2 
+		WHERE T2.RN &gt; (#{pageNum}-1)*#{pageSize} AND T2.RN &lt;= #{pageNum}*#{pageSize}
+	</select>
+	
+	<select id="queryTotal" resultType="int" parameterType="GridCondition">
+		SELECT COUNT(*) FROM (SELECT * FROM T_TYPEMENU ${condition})
+	</select>
+	
+	<select id="queryByNameAndNo" resultMap="TypeMenu" parameterType="TypeMenu">
+		SELECT * FROM T_TYPEMENU WHERE MENU=#{menu}
+	</select>
+	
+	<insert id="add" parameterType="TypeMenu">
+		<selectKey keyProperty="id" order="BEFORE" resultType="String">
+			SELECT SYS_GUID() FROM DUAL
+		</selectKey>
+		INSERT INTO T_TYPEMENU(ID,MENU,NO)VALUES(#{id},#{menu},#{no})
+	</insert>
+	<delete id="delete" parameterType="String">
+		DELETE FROM T_TYPEMENU WHERE ID=#{value}
+	</delete>
+	<update id="update" parameterType="TypeMenu">
+		UPDATE T_TYPEMENU SET MENU=#{menu},NO=#{no} WHERE ID=#{id}
+	</update>
+	<select id="queryByNo" resultMap="TypeMenu">
+		SELECT * FROM T_TYPEMENU WHERE NO=#{no}
+	</select>
+</mapper>

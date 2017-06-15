@@ -1,0 +1,124 @@
+#mianPager {
+	position: relative;
+}
+
+.typeList {
+	font-size: 14px;
+	margin: 0 auto;
+	color: #333;
+	z-index: 1;
+	top: 0;
+	height: 100%;
+}
+
+.typeMenuBar {
+	margin: 0;
+	padding: 0;
+	background: rgba(237, 237, 237, 1);
+	background-color: #ededed;
+	width: 200px;
+	height: 100%;
+}
+
+#typeArea {
+	user-select: none; 
+	box-shadow : 2px -2px 10px #e2d5d5;
+	background-color: #dde2de;
+	margin: 0 auto;
+	position: relative;
+	box-shadow: 2px -2px 10px #e2d5d5;
+}
+
+.typeIcon {
+	
+}
+
+.typeMenu {
+	list-style: none;
+	height: 6.25%;
+	padding: 0px 10px;
+	line-height: 31px;
+}
+
+.txtTypeMenu {
+	
+}
+
+.typeItem {
+	position: absolute;
+	top: 0;
+	left: 200px;
+	width: 800px;
+	height: 500px;
+	background-color: #fff;
+}
+
+.typeItemArea {
+	overflow: hidden;
+	padding-top: 10px;
+}
+
+.typeItemTitle {
+	float: left;
+	font-weight: bold;
+	padding: 9px 0px;
+	width: 100px;
+	text-align: center;
+}
+
+.typeItemContent {
+	float: left;
+	border-bottom: 1px dashed #999;
+	width: 670px;
+	padding: 9px 0 9px 0;
+}
+
+.typeItemContent span {
+	padding: 0px 10px 5px 10px;
+	display: inline-block;
+}
+
+.typeItemContent span a {
+	color: #B3B3B3;
+}
+
+.typeItemContent span a:hover {
+	color: #E54077;
+}
+
+.typeList .selectMenu {
+	background-color: #fff;
+	font-weight: bold;
+	color: #E54077;
+}
+
+.containerParent {
+	position: absolute;
+	margin: 0 auto;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	width: 1300px;
+}
+
+@media screen and (max-width:720px) and (min-width:320px) {
+	#mylist {
+		width: 100%;
+	}
+	.containerParent {
+		display: none;
+	}
+	#rollPic {
+		width: 100%;
+	}
+}
+
+@media screen and (max-width:900px) and (min-width:720px) {
+	.containerParent {
+		display: none;
+	}
+	#rollPic {
+		width: 100%;
+	}
+}

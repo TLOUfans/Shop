@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.njwangbo.mapper.OrderGoodsMapper">
+	<resultMap type="OrderGoods" id="OrderGoods">
+		<id property="id" column="id"/>
+	</resultMap>
+	<insert id="add" parameterType="OrderGoods">
+		<selectKey keyProperty="id" order="BEFORE" resultType="String">
+			SELECT SYS_GUID() FROM DUAL
+		</selectKey>
+		INSERT INTO T_ORDER_GOODS (ID,ORDERID,GOODSID,GOODSNUM) VALUES(#{id},#{orderId},#{goodsId},#{goodsNum})
+	</insert>
+	<delete id="delete" parameterType="String">
+		DELETE FROM T_ORDER_GOODS WHERE ORDERID=#{value}
+	</delete>
+</mapper>

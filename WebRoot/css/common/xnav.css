@@ -1,0 +1,193 @@
+
+#xnav {
+	border-top : 1px solid #F7F8FA;
+	width: 100%;
+	background-color: #fff;
+	height: 60px;
+	margin-bottom: 20px;
+	box-shadow: 2px 2px 1px #eee;
+	text-align: center;
+	border-top: 1px solid #F7F8FA;
+	z-index: 999;
+	top: 0;
+	left: 0;
+}
+
+#xnavContainer {
+	padding: 11px 0;
+	width: 1000px;
+	margin: 0 auto;
+	text-align: center;
+	position: relative;
+}
+
+.xnavTxt {
+	font-size: 15px;
+	color: #8590A6;
+	float: left;
+	padding: 9px 30px;
+	cursor: pointer;
+}
+
+.xnavTxt>a {
+	color: #8590A6;
+}
+
+#navInputArea {
+	margin: 0 auto;
+	width: 355px;
+}
+
+#navSearchBox {
+	border: 1px solid #E7EAF1 !important;
+	background-color: #F7F8FA;
+	padding: 8px 10px;
+	width: 270px;
+}
+
+#navSearchBtn {
+	border-radius: 3px;
+}
+
+#xnavFace {
+	width: 35px;
+	height: 35px;
+	border-radius: 50%;
+	cursor: pointer;
+	position: absolute;
+	top: 11px;
+	right: 50px;
+}
+
+#navUserInfo {
+	position: absolute;
+	top: 64px;
+	right: 10px;
+	border-radius: 3px;
+	border: 1px solid #fff;
+	box-shadow: 2px 2px 5px #6d6969;
+	color: #404040;
+	font-size: 15px;
+	z-index: 10;
+}
+
+#navUserInfo::before {
+	position: absolute;
+	content: "";
+	left: 48px;
+	top: -13px;
+	border-width: 0px 10px 12px 10px;
+	border-style: solid;
+	border-color: #ddd transparent;
+}
+
+#navUserInfo::after {
+	position: absolute;
+	content: "";
+	border-width: 0px 9px 11px 9px;
+	border-style: solid;
+	border-color: #fff transparent;
+	left: 49px;
+	top: -12px;
+}
+
+.navUserInfoItem {
+	background-color: #fff;
+	cursor: pointer;
+	padding: 11px;
+	text-align: left;
+}
+
+.navUserInfoItem>a {
+	color: #404040;
+}
+
+.navUserInfoItem>a:active {
+	color: #404040;
+}
+
+.navUserInfoItem:active {
+	background-color: #eee;
+}
+
+.navUserInfoItem i {
+	display: inline-block;
+	width: 30px;
+}
+
+.allWidth {
+	width: 100% !important;
+}
+
+#btnArea {
+	position: absolute;
+	right: 0;
+	top: 11px;
+}
+
+#xnavBtnLogin {
+	border: 1px solid #0f88eb;
+	background-color: #fff;
+	color: #0f88eb;
+	border-radius: 3px;
+	padding: 6px 10px;
+	margin-right: 10px;
+}
+
+#xnavBtnReg {
+	border: 1px solid #0f88eb;
+	padding: 6px 10px;
+	border-radius: 3px;
+	margin-right: 5px;
+}
+
+@media screen and (max-width:720px) and (min-width:320px) {
+	#xnavContainer {
+		width: 100%;
+	}
+	#navSearchBox {
+		display: none;
+		width: calc(100% -   100px);
+	}
+	#navSearchBtn {
+		margin-right: 10px;
+	}
+	#navInputArea {
+		width: 100%;
+		text-align: right;
+	}
+	.xnavTxt {
+		box-sizing: border-box;
+		padding: 9px 15px;
+	}
+	#xnavBtnLogin {
+		border: none;
+		margin-right: 0;
+	}
+	#xnavBtnReg {
+		border: none;
+		background-color: #fff;
+		color: #0f88eb;
+	}
+	#xnavFace {
+		display: none;
+	}
+	#btnArea {
+		display: none;
+	}
+}
+
+@media screen and (max-width:900px) and (min-width:720px) {
+	#xnavContainer {
+		width: 100%;
+	}
+	#navSearchBox {
+		width: 50%;
+	}
+	#navInputArea {
+		width: 70%;
+	}
+	.xnavTxt {
+		padding: 9px 15px;
+	}
+}

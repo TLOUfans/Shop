@@ -1,0 +1,190 @@
+body {
+	overflow-y: hidden;
+}
+
+.Container {
+	width: 1000px;
+	margin: 0 auto;
+	color: #333;
+	position: relative;
+	box-sizing: border-box;
+	border: 1px solid #e7eaf1;
+	border-top: none;
+	overflow: hidden;
+}
+
+.title {
+	padding: 7px 0 7px 20px;
+	background-color: #4fa9f1;
+	border-bottom: 1px solid #eee;
+}
+
+.titleResult {
+	padding: 7px 0 7px 20px;
+	background-color: #4fa9f1;
+	border-bottom: 1px solid #eee;
+	margin-top: 10px;
+	border-top: 1px solid #eee;
+}
+
+.title_text {
+	font-weight: 300;
+	font-size: 18px;
+	color: white;
+}
+
+.find_area {
+	padding: 10px 22px 0 20px;
+}
+
+.input_text {
+	color: #666;
+	padding-left: 3px;
+	width: 60px;
+	text-align: center;
+}
+
+.btnArea {
+	padding: 0 0 0 70px;
+	font-size: 13px;
+	color: #4FA9F1;
+}
+
+#resultContainer {
+	height:370px;
+	overflow-y: auto;
+}
+
+.resultItem {
+	float: left;
+	border: 1px solid #999;
+	overflow: hidden;
+	padding-right: 10px;
+	background-color: white !important;
+	margin: 10px 10px 10px 17px;
+	width: 288px;
+	user-select: none;
+	border-radius: 10px;
+	height: 100px;
+	box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+#select_container {
+	width: 100px;
+}
+
+.userFace {
+	width: 70px;
+	height: 70px;
+	border-radius: 70px;
+	overflow: hidden;
+	float: left;
+	margin: 5px 0 0 10px;
+	position: relative;
+	top: 10px;
+}
+
+.userFace>img {
+	width: 70px;
+	height: 70px;
+}
+
+.userInfo {
+	float: left;
+	padding: 5px 0 5px 10px;
+	color: #666;
+	font-size: 17px;
+	position: relative;
+	top: 7px;
+	left: 13px;
+	text-shadow: 1px 2px 4px #999;
+}
+
+.userName {
+	font-weight: 500;
+	padding: 0 0 5px 0;
+}
+
+.address {
+	font-weight: 500;
+	padding: 5px 0 0 0;
+	width: 100px;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+.sexDiv {
+	width: 35px;
+	height: 20px;
+	border-radius: 7px;
+	background-color: #71B8FC;
+	text-align: center;
+	line-height: 15px;
+}
+
+.sex span:last-child {
+	color: white;
+	font-size: 10px;
+}
+
+.addFriend {
+	float: right;
+	background-color: #FA5555;
+	color: white;
+	font-size: 13px;
+	padding: 3px 5px 3px 5px;
+	position: relative;
+	top: 13px;
+	cursor: pointer;
+	border-radius: 7px;
+}
+
+.addFriend:HOVER {
+	background-color: #ED4B4B;
+}
+
+.addFriend.bgChange:HOVER {
+	background-color: #d5d5d5;
+}
+
+.bgChange {
+	background-color: #d5d5d5;
+}
+
+.groupList {
+	position: absolute;
+	width: 119px;
+	height: 147px;
+	border: 1px solid #e2e2e2;
+	overflow: hidden;
+	text-align: center;
+	color: #666;
+	background-color: #fff;
+}
+
+.groupTitle {
+	text-align: left;
+	padding: 4px 0 4px 4px;
+}
+
+.groupItem {
+	display: block;
+}
+
+.Btn {
+	width: 40px;
+	height: 20px;
+	background-color: #2196F3;
+	padding: 2px 2px;
+	color: white;
+	margin-left: 3px;
+	font-size: 14px;
+	margin-top: 4px;
+	cursor: pointer;
+	user-select: none;
+}
+
+.Btn:ACTIVE {
+	background-color: #1786E0;
+}

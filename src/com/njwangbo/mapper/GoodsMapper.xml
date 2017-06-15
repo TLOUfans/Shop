@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.njwangbo.mapper.GoodsMapper">
+	<resultMap type="Goods" id="Goods">
+		<id property="id" column="GOODSID" />
+		<result property="name" column="GOODSNAME" />
+		<result property="price" column="PRICE" />
+		<result property="num" column="NUM" />
+		<result property="des" column="DES" />
+		<result property="sales" column="SALES" />
+		<result property="tate" column="TATE" />
+		<result property="bigImgPath" column="BIGIMGPATH" />
+		<result property="createTime" column="CREATETIME" />
+		<result property="userId" column="USERID" />
+		<result property="userName" column="USERNAME" />
+		<result property="typeId" column="TYPEID" />
+		<result property="typeName" column="TYPENAME" />
+		<collection property="smImgs" ofType="SmallImg">
+			<id property="id" column="IMGID"/>
+			<result property="src" column="IMGSRC"/>
+			<result property="url" column="IMGURL"/>
+		</collection>
+		<collection property="comments" ofType="Comment">
+			<id property="id" column="COMMENTID"/>
+			<result property="content" column="CONTENT"/>
+			<result property="grade" column="GRADE"/>
+			<result property="createTime" column="C_CREATETIME"/>
+		</collection>
+	</resultMap>
+
+	<select id="queryAll" resultMap="Goods" parameterType="GridCondition">
+SELECT T3.GOODSID,T3.GOODSNAME,T3.PRICE,T3.SALES,T3.TATE,T3.BIGIMGPATH,T3.CREATETIME,T3.DES,T3.NUM,T3.USERID,T3.USERNAME,T3.TYPEID,T3.TYPENAME,S.ID AS IMGID,S.SRC AS IMGSRC,S.URL AS IMGURL,C.ID AS COMMENTID,C.CONTENT,C.GRADE,C.CREATETIME AS C_CREATETIME FROM
+(SELECT T2.GOODSID,T2.GOODSNAME,T2.PRICE,T2.SALES,T2.TATE,T2.BIGIMGPATH,T2.CREATETIME,T2.DES,T2.NUM,T2.USERID,T2.USERNAME,T2.TYPEID,T2.TYPENAME FROM
+(SELECT T1.GOODSID,T1.GOODSNAME,T1.PRICE,T1.SALES,T1.TATE,T1.BIGIMGPATH,T1.CREATETIME,T1.DES,T1.NUM,T1.USERID,T1.USERNAME,T1.TYPEID,T1.TYPENAME,ROWNUM AS RN FROM
+(SELECT G.ID AS GOODSID,G.NAME AS GOODSNAME,TO_CHAR(G.PRICE,'999,999.99') AS PRICE,G.SALES,G.TATE,G.BIGIMGPATH,TO_CHAR(G.CREATETIME,'YYYY-MM-DD HH24:MI:SS') AS CREATETIME,G.DES,G.NUM,U.ID AS USERID,U.NAME AS USERNAME,T.ID AS TYPEID,T.MENU AS TYPENAME 
+FROM T_GOODS G LEFT JOIN T_USER U ON G.USER_ID=U.ID LEFT JOIN T_TYPEMENU T ON G.TYPEMENUID = T.ID ${condition} ORDER BY CREATETIME DESC)T1)T2 
+WHERE T2.RN &gt; (${pageNum}-1)*${pageSize} AND T2.RN &lt;= ${pageNum}*${pageSize})T3 LEFT JOIN T_SMALLIMG S ON T3.GOODSID = S.GOODSID LEFT JOIN T_COMMENT C ON T3.GOODSID=C.GOODSID ORDER BY T3.CREATETIME DESC
+	</select>
+	
+	<select id="queryRealAll" resultMap="Goods" parameterType="GridCondition">
+SELECT G.ID AS GOODSID,G.NAME AS GOODSNAME,TO_CHAR(G.PRICE,'999,999.99') AS PRICE,G.SALES,G.TATE,G.BIGIMGPATH,TO_CHAR(G.CREATETIME,'YYYY-MM-DD HH24:MI:SS') AS CREATETIME,G.DES,G.NUM,U.ID AS USERID,
+U.NAME AS USERNAME,T.ID AS TYPEID,T.MENU AS TYPENAME,S.ID AS IMGID,S.SRC AS IMGSRC,S.URL AS IMGURL 
+FROM T_GOODS G LEFT JOIN T_USER U ON G.USER_ID=U.ID LEFT JOIN T_TYPEMENU T ON G.TYPEMENUID = T.ID LEFT JOIN T_SMALLIMG S ON G.ID = S.GOODSID ${condition}
+	</select>
+	
+	<select id="getTotal" resultType="int" parameterType="GridCondition">
+		SELECT COUNT(0) FROM T_GOODS G LEFT JOIN T_USER U ON G.USER_ID=U.ID LEFT JOIN T_TYPEMENU T ON G.TYPEMENUID = T.ID ${condition}
+	</select>
+	
+	<select id="queryById" resultMap="Goods" parameterType="String">
+SELECT G.ID AS GOODSID,G.NAME AS GOODSNAME,TO_CHAR(G.PRICE,'999,999.99') AS PRICE,G.SALES,G.TATE,G.BIGIMGPATH,TO_CHAR(G.CREATETIME,'YYYY-MM-DD HH24:MI:SS') AS CREATETIME,G.DES,G.NUM,U.ID AS USERID,
+U.NAME AS USERNAME,T.ID AS TYPEID,T.MENU AS TYPENAME,S.ID AS IMGID,S.SRC AS IMGSRC,S.URL AS IMGURL 
+FROM T_GOODS G LEFT JOIN T_USER U ON G.USER_ID=U.ID LEFT JOIN T_TYPEMENU T ON G.TYPEMENUID = T.ID LEFT JOIN T_SMALLIMG S ON G.ID = S.GOODSID WHERE G.ID=#{value}
+	</select>
+	
+	<insert id="add" parameterType="Goods">
+		<selectKey keyProperty="id" order="BEFORE" resultType="String">
+			SELECT SYS_GUID() FROM DUAL
+		</selectKey>
+		INSERT INTO T_GOODS(ID, NAME,PRICE,SALES,DES,NUM,TYPEMENUID,USER_ID) VALUES 
+		(#{id},#{name},#{price},#{sales},#{des},#{num},#{typeId},#{userId})
+	</insert>
+	<update id="update" parameterType="Goods">
+		UPDATE T_GOODS SET NAME=#{name},PRICE=#{price},SALES=#{sales},DES=#{des},NUM=#{num},TYPEMENUID=#{typeId} WHERE ID=#{id}
+	</update>
+	<delete id="delete" parameterType="String">
+		DELETE FROM T_GOODS WHERE ID=#{value}
+	</delete>
+</mapper>

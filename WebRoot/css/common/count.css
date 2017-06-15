@@ -1,0 +1,44 @@
+.count {
+	position: relative;
+}
+
+.inputArea {
+	display: inline-block;
+	position: absolute;
+}
+
+#countInput {
+	outline: none;
+	border: none;
+	border: 1px solid #CCCCCC;
+	padding: 12px 0 12px 20px;
+	width: 50px;
+	height: 43px;
+}
+
+.operateArea {
+	display: inline-block;
+	position: absolute;
+	left: 50px;
+}
+
+.opearteBtn {
+	border-right: 1px solid #CCCCCC;
+	border-bottom: 1px solid #CCCCCC;
+	width: 20px;
+	display: block;
+	cursor: pointer;
+	height: 20px;
+	line-height: 20px;
+	background-color: #F1F1F1;
+	user-select: none;
+}
+
+.addbtn {
+	border-top: 1px solid #CCCCCC;
+	text-align: center;
+}
+
+.minusBtn {
+	text-align: center;
+}

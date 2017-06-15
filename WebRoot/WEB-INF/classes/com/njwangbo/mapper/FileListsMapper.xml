@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.njwangbo.mapper.FileListsMapper">
+	<resultMap type="FileLists" id="FileLists">
+		<id property="id" column="id" />
+		<result property="userId" column="USERID" />
+		<result property="fileName" column="FILENAME" />
+		<result property="fileSize" column="FILESIZE" />
+		<result property="fileType" column="FILETYPE" />
+		<result property="createTime" column="CREATETIME" />
+	</resultMap>
+
+	<!-- 分页查询所有文件 -->
+	<select id="queryAllFilesByPage" parameterType="GridCondition"
+		resultMap="FileLists">
+		SELECT T2.ID, T2.USERID, T2.FILENAME, T2.FILESIZE,
+		T2.FILETYPE, T2.USERNAME, T2.CREATETIME FROM
+		(SELECT T1.ID, T1.USERID,
+		T1.FILENAME, T1.FILESIZE, T1.FILETYPE, T1.USERNAME, T1.CREATETIME,
+		ROWNUM AS RN FROM
+		(SELECT F.ID AS ID, F.USERID AS USERID, F.FILENAME AS
+		FILENAME, F.FILESIZE AS FILESIZE, F.FILETYPE AS FILETYPE, U.NAME AS
+		USERNAME,
+		TO_CHAR(F.CREATETIME,'yyyy-MM-dd HH24:mi:ss') AS CREATETIME
+		FROM T_FILELISTS F
+		INNER JOIN T_USER U ON U.ID = F.USERID ${condition}
+		ORDER BY CREATETIME DESC)T1)T2
+		WHERE T2.RN &gt; (#{pageNum}-1)*#{pageSize} AND
+		T2.RN &lt;=
+		#{pageNum}*#{pageSize}
+	</select>
+
+	<!-- 根据用户id查询文件 -->
+	<select id="queryByUserId" parameterType="String" resultMap="FileLists">
+		SELECT F.ID AS ID, F.USERID AS USERID,
+		F.FILENAME AS FILENAME, F.FILESIZE AS FILESIZE, F.FILETYPE AS FILETYPE,
+		U.NAME AS USERNAME, TO_CHAR(F.CREATETIME,'yyyy-MM-dd HH24:mi:ss') AS
+		CREATETIME
+		FROM T_FILELISTS F INNER JOIN T_USER U ON U.ID = F.USERID WHERE USERID
+		=#{value}
+		AND 1=1 ORDER BY CREATETIME DESC
+	</select>
+	
+	<!-- 根据文件类型搜索 -->
+	<select id="queryByType" parameterType="String" resultMap="FileLists">
+		
+	</select>
+
+	<!-- 通过文件id查询文件 -->
+	<select id="queryByFileId" parameterType="String" resultType="String">
+		SELECT FILENAME FROM T_FILELISTS WHERE ID =#{value}
+	</select>
+
+	<!-- 查询所有文件的总数 -->
+	<select id="queryAllCount" parameterType="GridCondition" resultType="int">
+		SELECT COUNT(0) FROM (SELECT * FROM T_FILELISTS F
+		${condition})
+	</select>
+
+	<!-- 上传文件 -->
+	<insert id="insert" parameterType="FileLists">
+		<selectKey keyProperty="id" order="BEFORE" resultType="String">
+			SELECT SYS_GUID() FROM DUAL
+		</selectKey>
+		INSERT INTO
+		T_FILELISTS(ID,USERID,FILENAME,FILESIZE,FILETYPE)VALUES(#{id},#{userId},#{fileName},#{fileSize},#{fileType})
+	</insert>
+
+	<!-- 删除文件 -->
+	<delete id="delete" parameterType="String">
+		DELETE FROM T_FILELISTS WHERE
+		ID=#{id}
+	</delete>
+
+	<!-- 修改文件名 -->
+	<update id="update" parameterType="FileLists">
+		UPDATE T_FILELISTS SET
+		FILENAME = #{fileName} WHERE ID = #{id}
+	</update>
+</mapper>

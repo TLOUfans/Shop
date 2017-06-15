@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.njwangbo.mapper.CommentImgMapper">
+	<resultMap type="Comment" id="Comment">
+	</resultMap>
+	<insert id="add" parameterType="Comment">
+		<selectKey keyProperty="id" order="BEFORE" resultType="String">
+			SELECT SYS_GUID() FROM DUAL
+		</selectKey>
+		INSERT INTO T_COMMENTIMG(ID,URL,COMMENTID) VALUES (#{id},#{url},#{commentId})
+	</insert>
+</mapper>

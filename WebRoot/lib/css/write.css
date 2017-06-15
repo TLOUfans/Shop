@@ -1,0 +1,91 @@
+html {
+	height: 100%;
+}
+
+#writeContainer {
+	height: 100%;
+	color: #555;
+}
+
+#menuContent {
+	font-size: 16px;
+	width: 20%;
+	height: 100%;
+	float: left;
+	border-right: 1px solid #aaa;
+	box-sizing: border-box;
+}
+
+#editContent {
+	width: 80%;
+	height: 100%;
+	float: left;
+	outline: none;
+	box-sizing: border-box;
+}
+
+.newBtn {
+	padding: 20px 0px 20px 40px;
+	cursor: pointer;
+	user-select: none;
+}
+
+.articleBtn {
+	background-color: #fff;
+	border-top: 1px solid #fff;
+	border-bottom: 1px solid #fff;
+	padding: 25px 0px 25px 40px;
+	cursor: pointer;
+	user-select: none;
+	position: relative;
+	transition: border-left-width 250ms;
+}
+
+.selectedArticle {
+	background-color: #f0f0f0;
+	border-top: 1px solid #aaa;
+	border-bottom: 1px solid #aaa;
+	border-left-width: 5px;
+	border-left-style: solid;
+	border-left-color: #EC7259;
+}
+
+.sideLeftBar {
+	position: absolute;
+	width: 5px;
+	height: 100%;
+	background-color: #fff;
+	top: 0;
+	left: 0;
+}
+
+#editTitle {
+	padding: 20px 0 20px 30px;
+	font-size: 18px;
+}
+
+#toolBar {
+	margin: 0;
+	overflow : hidden;
+	padding: 10px 0;
+	background-color: #DEDEDE;
+	overflow: hidden;
+	padding-left: 15px;
+}
+
+#toolBar>li {
+	float: left;
+	list-style-type: none;
+	text-align: center;
+	width: 50px;
+	cursor: pointer;
+}
+
+#editText {
+	height: calc(100% - 100px);
+	outline: none;
+	padding: 30px;
+	box-sizing: border-box;
+	overflow-y: auto;
+	line-height: 22px;
+}

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context.xsd
+           ">
+	<!-- 扫描器，用于扫描所有类中的注解 -->
+	<context:component-scan base-package="com.njwangbo"></context:component-scan>
+	<!-- 配置mapper扫描器，根据Mapper.xml和Mapper.java生成实现类 -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<!-- 只有扫描器扫描了mapper，Mapper才能自动装配 -->
+		<property name="basePackage" value="com.njwangbo.mapper"></property>
+		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
+	</bean>
+
+	<!-- 要想spring认识${db.url}、${db.driver}等，spring需要导入外部属性文件 -->
+	<context:property-placeholder location="classpath:db.properties" />
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<!-- 加载mybatis运行时环境 -->
+		<property name="configLocation" value="classpath:mybatis.xml" />
+		<!-- 使用c3p0连接池 -->
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		<!-- spring整合mybatis后，关于jdbc的配置在mybatis配置文件SqlMapConfig.xml中可以省略 -->
+		<property name="jdbcUrl" value="${db.url}" />
+		<property name="driverClass" value="${db.driver}" />
+		<property name="user" value="${db.username}" />
+		<property name="password" value="${db.password}" />
+		<!-- 其他配置 -->
+		<!-- 初始化时默认创建3个数据库连接，取值在minPoolSize和maxPoolSize之间 -->
+		<property name="initialPoolSize" value="3" />
+		<!-- 连接池中保留最小的连接数，默认为3 -->
+		<property name="minPoolSize" value="3" />
+		<!-- 连接池中保留最大的连接数，默认为15 -->
+		<property name="maxPoolSize" value="20" />
+		<!-- 连接池中连接被耗尽时，c3p0一次同时生成连接的数量 -->
+		<property name="acquireIncrement" value="3" />
+		<!-- 控制数据源内加载的PreparedStatements数量，如果maxStatements、maxStatementsPerConnection均为0，则缓存被关闭，默认为0 -->
+		<property name="maxStatements" value="8" />
+		<!--定义了连接池内单个连接所拥有的最大缓存statements数 -->
+		<property name="maxStatementsPerConnection" value="5" />
+		<!-- 最大空闲时间，如果1800秒未使用，则连接被丢弃，为0则永不丢弃 -->
+		<property name="maxIdleTime" value="1800" />
+	</bean>
+</beans>

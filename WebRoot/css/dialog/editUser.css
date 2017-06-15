@@ -1,0 +1,59 @@
+.addUser {
+	width: 600px;
+	color: #444;
+	user-select: none;
+	padding-top: 15px;
+}
+
+input[type='text'],input[type='password'] {
+	width: 100%;
+}
+
+
+.inputArea {
+	overflow: hidden;
+	padding: 18px 0;
+	position: relative;
+}
+
+.txtName {
+	float: left;
+	padding: 5px 40px;
+	width: 70px;
+}
+
+.nameInput {
+	float: left;
+	position: relative;
+	width: 70%;
+}
+
+.sexInput {
+	position: relative;
+	top: 6px;
+}
+
+.sexArea {
+	margin-right: 22px;
+	cursor: pointer;
+}
+
+.bottomArea {
+	padding: 8px 190px;
+}
+
+.bottomArea input {
+	padding: 10px 25px;
+	margin: 10px;
+}
+
+.txtErr {
+	position: absolute;
+	right: 20px;
+	color: #f00;
+	top: 23px;
+	transition: all 250ms;
+	opacity:0;
+	font-size: 14px;
+	border: none !important;
+}

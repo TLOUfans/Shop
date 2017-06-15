@@ -1,0 +1,57 @@
+.ddl {
+	border: 2px solid #a9a8a8;
+	position: relative;
+	color: #3a3a3a;
+	cursor: pointer;
+	background-color: white;
+	font-size: 14px;
+	user-select: none;
+}
+
+.ddlTxt {
+	padding: 5px 30px 5px 10px;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.ddlArrow {
+	background-color: blue;
+	width: 0;
+	height: 0;
+	border-top: 7px solid #9c9c9c;
+	border-left: 5px solid white;
+	border-right: 5px solid white;
+	position: absolute;
+	right: 11px;
+	top: 12px;
+}
+
+.ddlList {
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	left: -2px;
+	width: 100%;
+	border: 2px solid #a9a8a8;
+	transition: all 250ms;
+	opacity: 0;
+	max-height: 300px;
+	overflow-y: auto;
+	z-index: 2;
+}
+
+.ddlItem {
+	padding: 5px 10px;
+	background-color: white;
+	overflow: hidden;
+	transition: all 250ms;
+}
+
+.ddlItem:hover {
+	background-color: #e2e2e2;
+}
+
+.ddlItemSelected {
+	background-color: #0586ec !important;
+	color: white;
+}

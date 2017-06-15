@@ -1,0 +1,78 @@
+.cardView {
+	overflow: hidden;
+	position: relative;
+	color: #798351;
+}
+
+.cardContainer {
+	float: left;
+	border: 3px solid #999;
+	padding: 40px 19px;
+	width: 575px;
+	margin: 10px;
+	background-color: #f0f0f0;
+	box-shadow: 2px 2px 10px #aaa;
+	user-select: none;
+	transition: all 2000ms;
+}
+
+.img {
+	width: 125px;
+	height: 125px;
+	border-radius: 125px;
+	float: left;
+	margin: 12px;
+	overflow: hidden;
+	cursor: pointer;
+}
+
+.info {
+	float: left;
+	margin: 10px 0;
+}
+
+.baseInfo {
+	width: 95px;
+	float: left;
+	margin: 0 20px;
+	transition: all 500ms;
+}
+
+.baseInfo:hover {
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.eamil {
+	float: left;
+	margin: 18px 135px 18px 20px;
+	cursor: pointer;
+	transition: all 500ms;
+}
+
+.eamil:hover {
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.other {
+	float: left;
+	margin: 12px 135px 18px 20px;
+	transition: all 500ms;
+	cursor: pointer;
+}
+
+.other:hover {
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.selectZ {
+	transform: rotateZ(360deg);
+}
+.selectX {
+	transform: rotateX(360deg);
+}
+.selectY{
+	transform: rotateY(360deg);
+}

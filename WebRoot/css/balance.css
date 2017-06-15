@@ -1,0 +1,398 @@
+#balanceArea {
+	width: 1300px;
+	margin: 0 auto;
+}
+
+#balaceTitle {
+	font-size: 20px;
+	color: #333;
+	padding: 25px 10px;
+}
+
+#balaceLittleTitle {
+	color: #666;
+	font-size: 16px;
+	padding-bottom: 15px;
+}
+
+#receiverInfoContainer {
+	border: 1px solid #f0f0f0;
+	font-size: 14px;
+	color: #666;
+}
+
+.infoArea {
+	margin: 0px 30px;
+	border-bottom: 1px solid #f0f0f0;
+	padding-bottom: 20px;
+}
+
+.balanceTitle {
+	color: #333;
+	font-size: 16px;
+	padding: 18px 0px;
+}
+
+.receiverInfoNameBorder {
+	display: inline-block;
+	margin: 0 0px 0 20px;
+	border: 2px solid #fff;
+}
+
+.receiverInfoName {
+	display: inline-block;
+	border: 1px solid #ddd;
+	padding: 5px 0px;
+	cursor: pointer;
+	width: 120px;
+	text-align: center;
+}
+
+.receiverInfo {
+	display: inline-block;
+	background-color: #fff;
+	padding: 7px 20px;
+	cursor: pointer;
+	font-size: 12px;
+	width: 1050px;
+}
+
+.receiverInfoBgc {
+	background-color: #FFF3F3;
+}
+
+.receiverInfoDiv {
+	margin-bottom: 10px;
+}
+
+#addAddressBtn {
+	font-size: 14px;
+	color: #666;
+	float: right;
+	cursor: pointer;
+}
+
+#payWayContainer {
+	overflow: hidden;
+	padding-left: 20px;
+}
+
+#inventoryArea {
+	overflow: hidden;
+}
+
+.payWayBorder {
+	border: 2px solid #fff;
+	float: left;
+	margin-right: 15px;
+}
+
+.payWay {
+	border: 1px solid #eee;
+	padding: 5px 30px;
+	cursor: pointer;
+}
+
+#inventoryContainer {
+	background-color: #F6F6F6;
+	overflow: hidden;
+	padding: 0 0 0 20px;
+}
+
+#dispatchArea {
+	float: left;
+	width: 365px;
+	background-color: #F6F6F6;
+	margin-right: 20px;
+}
+
+.inventoryTitle {
+	padding: 12px 0px;
+	font-weight: bold;
+}
+
+#express {
+	display: inline-block;
+	padding: 5px 30px;
+	cursor: pointer;
+	margin-right: 15px;
+	border: 2px solid #E4393C;
+	margin-bottom: 30px;
+}
+
+#arriveTime {
+	padding-bottom: 10px;
+}
+
+#returnGoods {
+	padding-bottom: 10px;
+}
+
+.goodsImg>img {
+	width: 80px;
+	height: 80px;
+	border: 1px solid #eee;
+}
+
+.goodsInfoContent {
+	overflow: hidden;
+	padding-top: 15px;
+	padding-bottom: 25px;
+	border-bottom: 1px solid #fff;
+}
+
+.goodsInfoArea {
+	float: left;
+	background-color: #F3FBFE;
+	padding: 0px 20px;
+	width: 793px;
+}
+
+.goodsImg {
+	float: left;
+}
+
+.goodsName {
+	float: left;
+	margin-left: 20px;
+	width: 250px;
+}
+
+.goodsPrice {
+	float: left;
+	color: #E43942;
+	font-weight: bold;
+	width: 100px;
+	text-align: right;
+}
+
+.goodsNum {
+	float: left;
+	width: 150px;
+	text-align: right;
+}
+
+.goodsStatus {
+	float: left;
+	width: 150px;
+	text-align: right;
+}
+
+#balanceBottom {
+	color: #666666;
+	font-size: 14px;
+	overflow: hidden;
+	padding: 20px 35px;
+	text-align: right;
+}
+
+#balanceBottomTxt {
+	
+}
+
+#balanceBottomTxtMoney {
+	display: inline-block;
+	width: 100px;
+	text-align: right;
+}
+
+#balaceAccountArea {
+	color: #666666;
+	font-size: 14px;
+	text-align: right;
+}
+
+#balaceAccountInfo {
+	border-top: 1px solid #E6E6E6;
+	background-color: #F4F4F4;
+	padding: 15px 30px;
+}
+
+#totalMoneyArea {
+	padding: 8px 0;
+}
+
+#goCartBtn {
+	border: none;
+	background-color: #ded9d9;
+	color: #8a8787;
+	padding: 7px 15px 6px 15px;
+	border-radius: 3px;
+}
+
+#goOrderBtn {
+	background-color: #E4393C;
+	font-weight: bold;
+	border: none;
+	border-radius: 3px;
+	margin: 25px 10px;
+	padding: 6px 20px;
+}
+
+#totalMoney {
+	display: inline-block;
+	font-weight: bold;
+	color: #E43942;
+	font-weight: bold;
+	margin-left: 27px;
+}
+
+.redBorder {
+	border: 2px solid #E4393C;
+}
+
+.whiteBorder {
+	border: 1px solid #fff;
+}
+
+#goodsInfoContainer {
+	overflow: hidden;
+}
+
+.delAddress {
+	float: right;
+}
+
+.goodsTxtContent {
+	overflow: hidden;
+	float: left;
+}
+
+@media screen and (max-width:720px) and (min-width:320px) {
+	#balanceArea {
+		width: 100%;
+	}
+	#balaceLittleTitle {
+		margin-left: 10px;
+	}
+	#receiverInfoArea {
+		padding: 0 10px;
+	}
+	#payWayArea {
+		padding: 0 10px;
+	}
+	.infoArea {
+		margin: 0;
+	}
+	.receiverInfoNameBorder {
+		margin: 0;
+	}
+	.receiverInfo {
+		width: 100%;
+		box-sizing: border-box;
+	}
+	#inventoryContainer {
+		padding: 0;
+	}
+	#inventoryArea .balanceTitle {
+		margin: 0 10px;
+	}
+	#dispatchArea {
+		width: 100%;
+		box-sizing: border-box;
+		margin: 0 10px;
+	}
+	.goodsInfoArea {
+		width: 100%;
+		box-sizing: border-box;
+	}
+	#goodsInfoContainer {
+		float: left;
+	}
+	#payWayContainer {
+		padding: 0;
+	}
+	.payWayBorder {
+		margin: 0;
+		width: 50%;
+		box-sizing: border-box;
+		text-align: center;
+		margin-bottom: 5px;
+	}
+	#express {
+		margin-bottom: 10px;
+	}
+	.goodsName {
+		padding-left: 15px;
+		width: calc(100% - 85px);
+		margin: 0;
+		box-sizing: border-box;
+	}
+	.goodsTxtContent {
+		margin-top: 10px;
+		width: calc(100% -   85px);
+	}
+	.goodsTxtContent div {
+		width: 33.3%;
+	}
+}
+
+@media screen and (max-width:900px) and (min-width:720px) {
+	#balanceArea {
+		width: 100%;
+	}
+	#balaceLittleTitle {
+		margin-left: 10px;
+	}
+	#receiverInfoArea {
+		padding: 0 10px;
+	}
+	#payWayArea {
+		padding: 0 10px;
+	}
+	.infoArea {
+		margin: 0;
+	}
+	.receiverInfoNameBorder {
+		margin: 0;
+	}
+	.receiverInfo {
+		width: 100%;
+		box-sizing: border-box;
+	}
+	#inventoryContainer {
+		padding: 0;
+	}
+	#inventoryArea .balanceTitle {
+		margin: 0 10px;
+	}
+	#dispatchArea {
+		width: 100%;
+		box-sizing: border-box;
+		margin: 0 10px;
+	}
+	.goodsInfoArea {
+		width: 100%;
+		box-sizing: border-box;
+	}
+	#goodsInfoContainer {
+		float: left;
+		width: 100%;
+	}
+	#payWayContainer {
+		padding: 0;
+	}
+	.payWayBorder {
+		margin: 0;
+		width: 25%;
+		box-sizing: border-box;
+		text-align: center;
+		margin-bottom: 5px;
+	}
+	#express {
+		margin-bottom: 10px;
+	}
+	.goodsName {
+		padding-left: 15px;
+		width: calc(100% - 85px);
+		margin: 0;
+		box-sizing: border-box;
+	}
+	.goodsTxtContent {
+		margin-top: 10px;
+		width: calc(100% -   85px);
+	}
+	.goodsTxtContent div {
+		width: 33.3%;
+	}
+}

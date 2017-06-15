@@ -1,0 +1,170 @@
+.addGoods {
+	width: 600px;
+	height: 435px;
+	color: #444;
+	user-select: none;
+	padding-top: 30px;
+	float: left;
+}
+
+#typeDdl {
+	z-index: 1;
+	width: 67%;
+	position: relative;
+	float: left;
+}
+
+input[type='text'],input[type='password'] {
+	width: 100%;
+}
+
+.inputArea {
+	padding: 18px 0;
+	position: relative;
+	float: left;
+	width: 100%;
+}
+
+#goodsNameArea {
+	margin-top: 14px;
+}
+
+#des {
+	width: 406px;
+	height: 60px;
+	outline: none;
+	resize: none;
+	padding: 3px 5px 3px 5px;
+	border: 2px solid #a9a8a8;
+	box-sizing: border-box;
+}
+
+.txtName {
+	float: left;
+	padding: 5px 40px;
+	width: 52px;
+}
+
+.nameInput {
+	float: left;
+	position: relative;
+	width: 406px;
+}
+
+.sexInput {
+	position: relative;
+	top: 6px;
+}
+
+.sexArea {
+	margin-right: 22px;
+	cursor: pointer;
+}
+
+.bottomArea {
+	padding: 8px 190px;
+	float: left;
+}
+
+.bottomArea input {
+	padding: 10px 25px;
+	margin: 10px;
+}
+
+.txtErr {
+	position: absolute;
+	right: 20px;
+	color: #f00;
+	top: 23px;
+	transition: all 250ms;
+	opacity: 0;
+	font-size: 14px;
+	border: none !important;
+	right: -210px;
+}
+
+#upload {
+	float: right;
+	margin-top: 30px;
+}
+
+.addPicDes {
+	position: absolute;
+	font-size: 13px;
+	color: #989393;
+	top: 46px;
+	right: 117px;
+}
+
+form {
+	border: 2px solid #a9a8a8;
+	height: 346px;
+	overflow-y: auto;
+	margin-right: 35px;
+	width: 290px;
+	margin-top: 5px;
+	color: #333;
+}
+
+form input {
+	padding: 5px 5px;
+	width: 232px;
+	outline: none;
+}
+
+.delSpan {
+	border: 1px solid #eee;
+	display: inline-block;
+	cursor: pointer;
+	padding: 0 6px;
+	border-radius: 50%;
+	padding: 0 6px;
+	user-select: none;
+}
+
+#imgList {
+	overflow: hidden;
+	height: 30px;
+}
+
+#imgList img {
+	width: 30px;
+	height: 30px;
+	position: absolute;
+	left: 0;
+	z-index: -1;
+}
+
+#imgList span {
+	vertical-align: top;
+	margin-right: 5px;
+	float: left;
+}
+
+#addPic {
+	width: 100px;
+	padding: 4px 0px;
+	background-color: #eee;
+	border: 1px solid #aaa;
+	color: #999;
+	margin-left: 5px;
+}
+
+.imgContainer {
+	float: left;
+	position: relative;
+	margin-right: 5px;
+	width: 30px;
+	height: 30px;
+	font-size: 14px;
+	line-height: 30px;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0);
+	color: rgba(0, 0, 0, 0);
+}
+
+.imgContainer:hover {
+	color: white;
+	background-color: rgba(0, 0, 0, 0.6);
+	cursor: pointer;
+}

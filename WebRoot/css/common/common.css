@@ -1,0 +1,64 @@
+* {
+	font-family: 'Microsoft YaHei';
+}
+
+html,body {
+
+}
+
+body {
+	margin: 0;
+}
+a {
+	text-decoration: none;
+}
+
+.hidden {
+	display: none !important;
+}
+
+/*文本框和按钮的通用样式*/
+input[type='text'],input[type='password'],input[type='button'],select {
+	color: #3a3a3a;
+	outline: none;
+	padding: 5px 10px;
+	border: 2px solid #a9a8a8;
+	user-select: none;
+	box-sizing:border-box;
+}
+
+/*鼠标悬停在文本框上时深灰色边框*/
+input[type='text']:hover,input[type='password']:hover {
+	border: 2px solid #828181;
+}
+
+/*文本框获取焦点时蓝色边框*/
+input[type='text']:focus,input[type='password']:focus {
+	border: 2px solid #0078d7;
+}
+
+/*按钮通用样式*/
+input[type='button'] {
+	color: white;
+	cursor: pointer;
+	font-size: 15px;
+	padding: 5px 20px;
+	background-color: #2196F3;
+	border: 2px solid #2196F3;
+}
+
+/*按钮鼠标悬停*/
+input[type='button']:hover {
+	border: 2px solid #0268b9;
+}
+
+/*按钮鼠标按下*/
+input[type='button']:active {
+	background-color: #0079d8;
+	border: 2px solid #0268b9;
+}
+
+/*文本框出错时的样式*/
+.txtErr {
+	border: 2px solid red !important;
+}

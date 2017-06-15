@@ -1,0 +1,43 @@
+#backdrop {
+	overflow: hidden;
+}
+
+.imgDiv {
+	width: 113px;
+	height: 90px;
+	float: left;
+}
+
+.theme {
+	float: left;
+	width: 100px;
+	height: 80px;
+	border: 1px solid #383837;
+	margin: 0px 7px 9px;
+	box-sizing: border-box;
+	position: relative;
+	cursor: pointer;
+	border-radius: 2px;
+	overflow: hidden;
+}
+
+.imgName {
+	position: relative;
+	right: -7px;
+	top: -89px;
+	padding-top: 28px;
+	background-color: rgba(55, 55, 55, 0.43);
+	width: 97px;
+	height: 50px;
+	display: inline-block;
+	text-align: center;
+	cursor: pointer;
+	border-radius: 2px;
+	border: 1px solid #3b8cff;
+	color: #69e6e6;
+}
+
+.theme>img {
+	width: 130px;
+	height: 100px;
+}

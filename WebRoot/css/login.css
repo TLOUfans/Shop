@@ -1,0 +1,140 @@
+body {
+	background: url(../img/573963dcbcd00.jpg) no-repeat;
+}
+
+#loginPanel {
+	color: #fff;
+	width: 350px;
+	margin: 0 auto;
+	position: relative;
+	margin-top: 150px;
+}
+
+#loginPanel a {
+	color: #fff;
+}
+
+#loginPanel a:hover {
+	text-decoration: underline;
+}
+
+#loginTitle {
+	font-weight: 200;
+	font-size: 33px;
+	text-align: center;
+}
+
+#subTitle {
+	text-align: center;
+	padding: 17px 0 20px 0;
+}
+
+input[type='text'],input[type='password'] {
+	font-size: 15px;
+	margin: 0 0 12px 0;
+	width: 100%;
+	border: 2px solid #a9a8a8;
+}
+
+.errTips {
+	color: red;
+	font-size: 15px;
+	position: relative;
+	float: right;
+	margin: -39px 0px 10px 0;
+	opacity: 0;
+	transition: all 250ms;
+}
+
+.showErrTips {
+	opacity: 1;
+	margin: -39px 15px 10px 0;
+}
+
+#lblRM {
+	float: left;
+}
+
+a {
+	float: right;
+	color: #0078d7;
+}
+
+#btnLogin {
+	margin-top: 23px;
+	width: 100%;
+}
+
+#txtCodeLine {
+	width: 240px;
+	position: relative;
+}
+
+#pic {
+	position: absolute;
+	right: 0;
+	cursor: pointer;
+	top: 195px; /*所有浏览器有效*/
+	top: 193px\0; /*只对IE浏览器有效*/
+}
+
+/*FF*/
+@
+-moz-document url-prefix (){ #pic { top:196px;
+	
+}
+
+}
+#errTipsCode {
+	
+}
+
+/*登录失败的按钮样式*/
+.btnErr {
+	border: 2px solid #d60f00 !important;
+	background-color: #f5493d !important;
+}
+
+/*登录成功*/
+.btnSuccess {
+	border: 2px solid #009688 !important;
+	background-color: #25b788 !important;
+}
+
+.txtSuccess {
+	border: 2px solid #34c33a !important;
+}
+
+.showSuccessTips {
+	opacity: 1;
+	margin: -39px 15px 10px 0;
+	color: #32b361;
+}
+
+.line {
+	position: relative;
+}
+
+/*灰色占位符*/
+.placeholder {
+	font-size: 15px;
+	color: darkgrey;
+	position: absolute;
+	top: 7px;
+	left: 12px;
+	display: none; /*所有浏览器隐藏*/
+	display: block\0; /*IE8~IE11显示*/
+}
+
+/*在IE10以上版本中隐藏，最终只在IE7~IE9中显示，因为只有IE7~IE9不支持placeholder*/
+@media screen and (-ms-high-contrast: active) , ( -ms-high-contrast : none) {
+	.placeholder {
+		display: none; /*仅仅对>=IE10有效*/
+	}
+}
+
+@media screen and (max-width:900px) and (min-width:720px) {
+	#loginPanel {
+		margin-top: 40px;
+	}
+}

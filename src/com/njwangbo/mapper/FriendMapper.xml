@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.njwangbo.mapper.FriendMapper">
+	<resultMap type="MyFriends" id="MyFriends">
+		<id property="id" column="MYFRIENDSID" />
+		<result property="group" column="TAG" />
+		<association property="mine" javaType="User">
+			<id property="id" column="MINEID" />
+			<result property="loginName" column="MINELOGINNAME" />
+			<result property="pwd" column="MINEPWD" />
+			<result property="name" column="MINEUSERNAME" />
+			<result property="sex" column="MINESEX" />
+			<result property="money" column="MINEMONEY" />
+			<result property="face" column="MINEFACE" />
+			<result property="createTime" column="MINECREATETIME" />
+		</association>
+		<collection property="friend" ofType="User">
+			<id property="id" column="FRIENDID" />
+			<result property="loginName" column="FRIENDLOGINNAME" />
+			<result property="pwd" column="FRIENDPWD" />
+			<result property="name" column="FRIENDUSERNAME" />
+			<result property="sex" column="FRIENDSEX" />
+			<result property="money" column="FRIENDMONEY" />
+			<result property="face" column="FRIENDFACE" />
+			<result property="createTime" column="FRIENDCREATETIME" />
+		</collection>
+	</resultMap>
+	<select id="queryByGroup" resultMap="MyFriends" parameterType="String">
+		SELECT T1.ID AS ID,T1.TAG AS TAG,T1.USER_ID AS MINEID,T1.FRIEND_ID AS
+		FRIENDID,T2.LOGINNAME AS MINELOGINNAME,T2.PWD AS MINEPWD,T2.NAME AS
+		MINEUSERNAME,T2.SEX AS MINESEX,T2.MONEY AS MINEMONEY,T2.FACE AS
+		MINEFACE,T2.CREATETIME AS MINECREATETIME,T3.LOGINNAME AS
+		FRIENDLOGINNAME,T3.PWD AS FRIENDPWD,T3.NAME AS
+		FRIENDUSERNAME,T3.SEX AS
+		FRIENDSEX,T3.MONEY AS FRIENDMONEY,T3.FACE AS FRIENDFACE,T3.CREATETIME
+		AS FRIENDCREATETIME FROM T_FRIEND T1
+		LEFT JOIN T_USER T2 ON
+		T1.USER_ID=T2.ID
+		LEFT JOIN T_USER T3 ON T1.FRIEND_ID=T3.ID ${condition}
+	</select>
+	<delete id="delete" parameterType="String">
+		DELETE FROM T_FRIEND WHERE USER_ID = #{userId} AND FRIEND_ID = #{friendId}
+	</delete>
+	<insert id="add" parameterType="String">
+		<selectKey keyProperty="id" order="BEFORE" resultType="String">
+			SELECT SYS_GUID() FROM DUAL
+		</selectKey>
+		INSERT INTO T_FRIEND(ID,USER_ID,FRIEND_ID,TAG)
+		VALUES(#{id},#{userId},#{friendId},#{tag})
+	</insert>
+	<select id="queryAllCount" parameterType="GridCondition"
+		resultType="int">
+		SELECT COUNT(T1.ID) FROM T_FRIEND T1
+		LEFT JOIN T_USER T2 ON
+		T1.USER_ID=T2.ID
+		LEFT JOIN T_USER T3 ON T1.USER_ID=T3.ID ${condition}
+	</select>
+</mapper>
